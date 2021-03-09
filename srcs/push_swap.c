@@ -12,16 +12,30 @@
 
 #include "../include/push_swap.h"
 
-void	ft_create_stack(t_push *tp, char *str)
-{
-	ft_lstadd_back(&tp->astack, ft_lstnew(str));
-}
-
 void	ft_init_struct(t_push *tp)
 {
 	tp->astack = NULL;
 	tp->bstack = NULL;
 }
+
+int		ft_check_dupli(char *str, char **set)
+{
+	int a;
+	int count;
+
+	a = 0;
+	count = 0;
+	while (set[a])
+	{
+		if (!ft_strcmp(set[a], str))
+			count++;
+		a++;
+	}
+	if (count >= 2)
+		return (-1);
+	return (0);
+}
+
 int		ft_youanumber(char *str)
 {
 	int	a;
@@ -56,17 +70,12 @@ int		ft_parse(int argc, char **argv, t_push *tp)
 	a = 1;
 	while (a < argc)
 	{
-		if (ft_youanumber(argv[a]) == -1)
+		if (ft_youanumber(argv[a]) == -1 || ft_check_dupli(argv[a], argv) == -1)
 			return (-1);
-		ft_create_stack(tp, argv[a]);
+		ft_lstadd_back(&tp->astack, ft_lstnew(argv[a]));
 		a++;
 	}
 	tp->firsta = tp->astack;
-//	while (tp->astack)
-//	{
-//		printf("%s\n", tp->astack->content);
-//		tp->astack = tp->astack->next;
-//	}
 	return (0);
 }
 
@@ -84,3 +93,17 @@ int		main(int argc, char **argv)
 	}
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+//	while (tp->astack)
+//	{
+//		printf("%s\n", tp->astack->content);
+//		tp->astack = tp->astack->next;
+//	}

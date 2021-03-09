@@ -23,4 +23,9 @@ typedef struct	s_push
 	t_list *firsta;
 }				t_push;
 
+int     ft_swap(t_push *tp);
+int     ft_push(t_push *tp);
+int     ft_rotate(t_push *tp);
+int     ft_rev_rotate(t_push *tp);
+
 #endif
