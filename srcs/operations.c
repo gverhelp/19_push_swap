@@ -12,22 +12,22 @@
 
 #include "../include/push_swap.h"
 
-int     ft_swap(t_push *tp)
+int     ft_swap(t_stack *ts)
 {
     return (0);
 }
 
-int     ft_push(t_push *tp)
+int     ft_push(t_stack *ts)
 {
     return (0);
 }
 
-int     ft_rotate(t_push *tp)
+int     ft_rotate(t_stack *ts)
 {
     return (0);
 }
 
-int     ft_rev_rotate(t_push *tp)
+int     ft_rev_rotate(t_stack *ts)
 {
     return (0);
 }

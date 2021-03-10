@@ -16,16 +16,20 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
-typedef struct	s_push
-{
-	t_list *astack;
-	t_list *bstack;
-	t_list *firsta;
-}				t_push;
+typedef struct	s_stack t_stack;
 
-int     ft_swap(t_push *tp);
-int     ft_push(t_push *tp);
-int     ft_rotate(t_push *tp);
-int     ft_rev_rotate(t_push *tp);
+struct s_stack
+{
+	int		number;
+	t_stack	*next;
+	t_stack	*astack;
+	t_stack	*bstack;
+//	t_stack	*firsta;
+};
+
+int     ft_swap(t_stack *ts);
+int     ft_push(t_stack *ts);
+int     ft_rotate(t_stack *ts);
+int     ft_rev_rotate(t_stack *ts);
 
 #endif

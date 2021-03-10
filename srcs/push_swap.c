@@ -12,10 +12,31 @@
 
 #include "../include/push_swap.h"
 
-void	ft_init_struct(t_push *tp)
+void	ft_init_struct(t_stack *ts)
 {
-	tp->astack = NULL;
-	tp->bstack = NULL;
+	ts->astack = NULL;
+	ts->bstack = NULL;
+}
+
+t_stack	*ft_new_elem(int number)
+{
+	t_stack *lst;
+
+	lst = malloc(sizeof(t_stack));
+	if (lst == 0)
+		return (0);
+	lst->number = number;
+	lst->next = NULL;
+	return (lst);
+}
+
+void	ft_push_stack(t_stack **stack, int number)
+{
+	t_stack *first;
+
+	first = ft_new_elem(number);
+	first->next = *stack;
+	*stack = first;
 }
 
 int		ft_check_dupli(char *str, char **set)
@@ -63,29 +84,28 @@ int		ft_youanumber(char *str)
 	return (0);
 }
 
-int		ft_parse(int argc, char **argv, t_push *tp)
+int		ft_parse(int argc, char **argv, t_stack *ts)
 {
-	int	a;
+	int		a;
 
 	a = 1;
 	while (a < argc)
 	{
 		if (ft_youanumber(argv[a]) == -1 || ft_check_dupli(argv[a], argv) == -1)
 			return (-1);
-		ft_lstadd_back(&tp->astack, ft_lstnew(argv[a]));
+		ft_push_stack(&ts->astack, ft_atoi(argv[a]));
 		a++;
 	}
-	tp->firsta = tp->astack;
 	return (0);
 }
 
 int		main(int argc, char **argv)
 {
-	t_push	tp;
-	ft_init_struct(&tp);
+	t_stack	ts;
+	ft_init_struct(&ts);
 	if (argc > 1)
 	{
-		if (ft_parse(argc, argv, &tp) == -1)
+		if (ft_parse(argc, argv, &ts) == -1)
 		{
 			write(2, "Error\n", 6);
 			return (-1);
@@ -102,8 +122,8 @@ int		main(int argc, char **argv)
 
 
 
-//	while (tp->astack)
+//	while (ts->astack)
 //	{
-//		printf("%s\n", tp->astack->content);
-//		tp->astack = tp->astack->next;
+//		printf("%d\n", ts->astack->number);
+//		ts->astack = ts->astack->next;
 //	}
