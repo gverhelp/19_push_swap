@@ -24,7 +24,7 @@ t_stack	*ft_new_elem(int newnumber)
 	return (lst);
 }
 
-int		ft_push_stack(t_stack **stack, int newnumber)
+int		ft_a_stack(t_stack **stack, int newnumber)
 {
 	t_stack *firststack;
 
@@ -35,6 +35,7 @@ int		ft_push_stack(t_stack **stack, int newnumber)
 	return (0);
 }
 
+/*
 int     ft_pop_stack(t_stack **stack)
 {
     t_stack *del;
@@ -46,3 +47,4 @@ int     ft_pop_stack(t_stack **stack)
     free(del);
     return (0);
 }
+*/

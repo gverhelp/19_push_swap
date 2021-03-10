@@ -24,8 +24,8 @@ struct s_stack
 	t_stack	*next;
 	t_stack	*astack;
 	t_stack	*bstack;
-//	t_stack	*firsta;
-//	t_stack	*firstb;
+	t_stack	*firsta;
+	t_stack	*firstb;
 };
 
 ////////////// Parsing ///////////////
@@ -37,7 +37,7 @@ int		ft_parse(int argc, char **argv, t_stack *ts);
 /////////// Change list //////////////
 
 t_stack	*ft_new_elem(int number);
-int		ft_push_stack(t_stack **stack, int number);
+int		ft_a_stack(t_stack **stack, int newnumber);
 
 //////////// Operations //////////////
 
