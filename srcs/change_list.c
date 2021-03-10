@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   change_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,26 +12,37 @@
 
 #include "../include/push_swap.h"
 
-int     ft_swap(t_stack *ts)
+t_stack	*ft_new_elem(int newnumber)
 {
-    (void)ts;
-    return (0);
+	t_stack *lst;
+
+	lst = malloc(sizeof(t_stack));
+	if (lst == 0)
+		return (0);
+	lst->number = newnumber;
+	lst->next = NULL;
+	return (lst);
 }
 
-int     ft_push(t_stack *ts)
+int		ft_push_stack(t_stack **stack, int newnumber)
 {
-    (void)ts;
-    return (0);
+	t_stack *firststack;
+
+	if (!(firststack = ft_new_elem(newnumber)))
+		return (-1);
+	firststack->next = *stack;
+	*stack = firststack;
+	return (0);
 }
 
-int     ft_rotate(t_stack *ts)
+int     ft_pop_stack(t_stack **stack)
 {
-    (void)ts;
-    return (0);
-}
+    t_stack *del;
 
-int     ft_rev_rotate(t_stack *ts)
-{
-    (void)ts;
+    if (!*stack)
+        return (-1);
+    del = *stack;
+    *stack = (*stack)->next;
+    free(del);
     return (0);
 }

@@ -25,11 +25,30 @@ struct s_stack
 	t_stack	*astack;
 	t_stack	*bstack;
 //	t_stack	*firsta;
+//	t_stack	*firstb;
 };
+
+////////////// Parsing ///////////////
+
+int		ft_check_dupli(char *str, char **set);
+int		ft_youanumber(char *str);
+int		ft_parse(int argc, char **argv, t_stack *ts);
+
+/////////// Change list //////////////
+
+t_stack	*ft_new_elem(int number);
+int		ft_push_stack(t_stack **stack, int number);
+
+//////////// Operations //////////////
 
 int     ft_swap(t_stack *ts);
 int     ft_push(t_stack *ts);
 int     ft_rotate(t_stack *ts);
 int     ft_rev_rotate(t_stack *ts);
+
+////////////// Utils ////////////////
+
+void	ft_init_struct(t_stack *ts);
+void	ft_exit(char *str);
 
 #endif

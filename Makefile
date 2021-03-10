@@ -1,7 +1,22 @@
-SRC             =       oprations.c \
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/11 15:39:59 by gverhelp          #+#    #+#              #
+#    Updated: 2021/03/08 17:43:28 by gverhelp         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS             =       operations.c \
+							change_list.c \
+							parsing.c \
+							utils.c \
 
 SRC_DIR         =       srcs/
-SRC             =       $(addprefix $(SRC_DIR), $(SRC_NAMES))
+SRC             =       $(addprefix $(SRC_DIR), $(SRCS))
 OBJ             =       $(SRC:%.c=%.o)
 
 CHECKER         =       checker
@@ -17,19 +32,18 @@ ifeq ($(UNAME_S), Darwin)
 		LFT             =       $(LIBFT)
 endif
 ifeq ($(UNAME_S), Linux)
-		LFT             =       -L./libft -lft
+		LFT             =       -L$(LIBFTPATH) -lft
 endif
 
 CC                      =       gcc -g -Wall -Wextra -Werror -I./libft/include/ -I./include/
 RM                      =       rm -f
-AR                      =       ar -rc
 
 all: libft_all $(CHECKER) $(PUSH_SWAP)
 $(CHECKER): $(OBJ) $(SRC_DIR)$(CHECKER).o $(LIBFT)
-	$(CC) $(FLAGS) -o $(CHECKER) $(OBJ) $(SRC_DIR)$(CHECKER).o $(LFT)
+	$(CC) -o $(CHECKER) $(OBJ) $(SRC_DIR)$(CHECKER).o $(LFT)
 
 $(PUSH_SWAP): $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o $(LIBFT)
-	$(CC) $(FLAGS) -o $(PUSH_SWAP) $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o $(LFT)
+	$(CC) -o $(PUSH_SWAP) $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o $(LFT)
 
 clean: libft_clean
 	cd libft/ && make $@
@@ -38,7 +52,7 @@ clean: libft_clean
 	$(RM) $(SRC_DIR)$(PUSH_SWAP).o
 
 fclean:		libft_fclean clean
-	make fclean -C ./libft
+	make fclean -C $(LIBFTPATH)
 	$(RM) $(CHECKER)
 	$(RM) $(PUSH_SWAP)
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,26 +12,16 @@
 
 #include "../include/push_swap.h"
 
-int     ft_swap(t_stack *ts)
+void	ft_init_struct(t_stack *ts)
 {
-    (void)ts;
-    return (0);
+	ts->astack = NULL;
+	ts->bstack = NULL;
+	ts->next = NULL;
+	ts->number = 0;
 }
 
-int     ft_push(t_stack *ts)
+void	ft_exit(char *str)
 {
-    (void)ts;
-    return (0);
-}
-
-int     ft_rotate(t_stack *ts)
-{
-    (void)ts;
-    return (0);
-}
-
-int     ft_rev_rotate(t_stack *ts)
-{
-    (void)ts;
-    return (0);
+	ft_putendl_fd(str, 2);
+	exit(0);
 }

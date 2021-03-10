@@ -12,7 +12,51 @@
 
 #include "../include/push_swap.h"
 
-int     main(void)
+int		what_operation(char *str, t_stack *ts)
 {
+	if (!ft_strcmp(str, "sa"))
+		return (ft_swap(ts));
+	if (!ft_strcmp(str, "sb"))
+		return (ft_swap(ts));
+	if (!ft_strcmp(str, "ss"))
+		return (ft_swap(ts));
+	if (!ft_strcmp(str, "pa"))
+		return (ft_push(ts));
+	if (!ft_strcmp(str, "pb"))
+		return (ft_push(ts));
+	if (!ft_strcmp(str, "ra"))
+		return (ft_rotate(ts));
+	if (!ft_strcmp(str, "rb"))
+		return (ft_rotate(ts));
+	if (!ft_strcmp(str, "rr"))
+		return (ft_rotate(ts));
+	if (!ft_strcmp(str, "rra"))
+		return (ft_rev_rotate(ts));
+	if (!ft_strcmp(str, "rrb"))
+		return (ft_rev_rotate(ts));
+	if (!ft_strcmp(str, "rrr"))
+		return (ft_rev_rotate(ts));
+	return (-1);
+}
+
+int     main(int argc, char **argv)
+{
+    t_stack	ts;
+	char	*line;
+
+	line = NULL;
+	ft_init_struct(&ts);
+	if (argc > 1)
+	{
+		if (ft_parse(argc, argv, &ts) == -1)
+			ft_exit("Error");
+	}
+	while (get_next_line(0, &line) > 0)
+	{
+		if (what_operation(line, &ts) == -1)
+			ft_exit("Error");
+		free(line);
+	}
+	free(line);
     return (0);
 }
