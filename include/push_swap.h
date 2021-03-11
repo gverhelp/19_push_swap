@@ -37,14 +37,17 @@ int		ft_parse(int argc, char **argv, t_stack *ts);
 /////////// Change list //////////////
 
 t_stack	*ft_new_elem(int number);
-int		ft_a_stack(t_stack **stack, int newnumber);
+int		ft_push_stack(t_stack **stack, int newnumber);
+int     ft_pop_stack(t_stack **stack);
+t_stack	*ft_bottom_stack(t_stack *stack);
+t_stack	*ft_before_bottom_stack(t_stack *stack);
 
 //////////// Operations //////////////
 
-int     ft_swap(t_stack *ts);
-int     ft_push(t_stack *ts);
-int     ft_rotate(t_stack *ts);
-int     ft_rev_rotate(t_stack *ts);
+int     ft_swap(t_stack *ts, int a);
+int     ft_push(t_stack *ts, int a);
+int     ft_rotate(t_stack *ts, int a);
+int     ft_rev_rotate(t_stack *ts, int a);
 
 ////////////// Utils ////////////////
 

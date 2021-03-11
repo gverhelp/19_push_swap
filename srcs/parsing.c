@@ -66,10 +66,32 @@ int		ft_parse(int argc, char **argv, t_stack *ts)
 	{
 		if (ft_youanumber(argv[a]) == -1 || ft_check_dupli(argv[a], argv) == -1)
 			return (-1);
-		if (ft_a_stack(&ts->astack, ft_atoi(argv[a])) == -1)
+		if (ft_push_stack(&ts->astack, ft_atoi(argv[a])) == -1)
 			return (-1);
 		a++;
 	}
+
+
+//	ft_push_stack(&ts->bstack, 20);    //// to do some tests
+//	ft_push_stack(&ts->bstack, 7);
+
+
+///////////////////////////////////     Afficher le stack a
+	ts->firsta = ts->astack;
+	while (ts->astack)
+	{
+		printf("%d\n", ts->astack->number);
+		ts->astack = ts->astack->next;
+	}
+	ts->astack = ts->firsta;
+////////////////////////////////////   Afficher le stack b
+	ts->firstb = ts->bstack;
+	while (ts->bstack)
+	{
+		printf("%d\n", ts->bstack->number);
+		ts->bstack = ts->bstack->next;
+	}
+	ts->bstack = ts->firstb;
 	return (0);
 }
 

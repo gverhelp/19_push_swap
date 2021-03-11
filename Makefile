@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS             =       operations.c \
-							change_list.c \
-							parsing.c \
-							utils.c \
+SRCS            =       operations.c \
+						change_list.c \
+						parsing.c \
+						utils.c \
 
 SRC_DIR         =       srcs/
 SRC             =       $(addprefix $(SRC_DIR), $(SRCS))
