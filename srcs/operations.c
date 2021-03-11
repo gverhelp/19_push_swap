@@ -23,7 +23,7 @@ int     ft_swap(t_stack *ts, int a)
     if (a == 2)
         stack = ts->bstack;
     if (!stack || !stack->next)
-        ft_exit("KO");
+        ft_exit("KO", 1);
     tmp = stack->number;
     stack->number = stack->next->number;
     stack->next->number = tmp;
@@ -35,14 +35,14 @@ int     ft_push(t_stack *ts, int a)
     if (a == 1)
     {
         if (!ts->bstack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         ft_push_stack(&ts->astack, ts->bstack->number);
         ft_pop_stack(&ts->bstack);
     }
     if (a == 2)
     {
         if (!ts->astack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         ft_push_stack(&ts->bstack, ts->astack->number);
         ft_pop_stack(&ts->astack);
     }
@@ -57,7 +57,7 @@ int     ft_rotate(t_stack *ts, int a)
     if (a == 1)
     {
         if (!ts->astack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         if (!ts->astack->next)                       ///// Demander si faire rotate avec un seul nombre dans le stack est possible
             return (0);
         top = ts->astack;
@@ -69,7 +69,7 @@ int     ft_rotate(t_stack *ts, int a)
     if (a == 2)
     {
         if (!ts->bstack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         if (!ts->bstack->next)
             return (0);
         top = ts->bstack;
@@ -89,7 +89,7 @@ int     ft_rev_rotate(t_stack *ts, int a)
     if (a == 1)
     {
         if (!ts->astack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         if (!ts->astack->next)
             return (0);
         bot = ft_bottom_stack(ts->astack);
@@ -101,7 +101,7 @@ int     ft_rev_rotate(t_stack *ts, int a)
     if (a == 2)
     {
         if (!ts->bstack)
-            ft_exit("KO");
+            ft_exit("KO", 1);
         if (!ts->bstack->next)
             return (0);
         bot = ft_bottom_stack(ts->bstack);

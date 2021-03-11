@@ -61,13 +61,13 @@ int     main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (ft_parse(argc, argv, &ts) == -1)
-			ft_exit("Error");
+			ft_exit("Error", 2);
 	}
-	while (get_next_line(0, &line) > 0)
+	while (ft_check_order(&ts) == -1 && get_next_line(0, &line) > 0)
 	{
 		if (what_operation(line, &ts) == -1)
-			ft_exit("Error");
-////////////////////////////////////////////////// Afficher stack a
+			ft_exit("Error", 2);
+/*////////////////////////////////////////////////// Afficher stack a
     	ts.firsta = ts.astack;
 		while (ts.astack)
 		{
@@ -83,9 +83,11 @@ int     main(int argc, char **argv)
 			ts.bstack = ts.bstack->next;
 		}
 		ts.bstack = ts.firstb;
-/////////////////////////////////////////////////
+*/////////////////////////////////////////////////
 		free(line);
 	}
 	free(line);
+	if (ft_check_order(&ts) == 0)
+		ft_exit("OK", 1);
     return (0);
 }

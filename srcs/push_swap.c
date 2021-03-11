@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (ft_parse(argc, argv, &ts) == -1)
-			ft_exit("Error");
+			ft_exit("Error", 2);
 	}
 	return (0);
 }

@@ -20,8 +20,8 @@ void	ft_init_struct(t_stack *ts)
 	ts->number = 0;
 }
 
-void	ft_exit(char *str)
+void	ft_exit(char *str, int fd)
 {
-	ft_putendl_fd(str, 2);
+	ft_putendl_fd(str, fd);
 	exit(0);
 }

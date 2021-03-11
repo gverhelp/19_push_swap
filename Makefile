@@ -13,6 +13,7 @@
 SRCS            =       operations.c \
 						change_list.c \
 						parsing.c \
+						manip_stack.c \
 						utils.c \
 
 SRC_DIR         =       srcs/

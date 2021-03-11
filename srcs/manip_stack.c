@@ -12,37 +12,32 @@
 
 #include "../include/push_swap.h"
 
-t_stack	*ft_new_elem(int newnumber)
+int     ft_check_order(t_stack *ts)
 {
-	t_stack *lst;
+    t_stack *stack;
 
-	lst = malloc(sizeof(t_stack));
-	if (lst == 0)
-		return (0);
-	lst->number = newnumber;
-	lst->next = NULL;
-	return (lst);
-}
-
-int		ft_push_stack(t_stack **stack, int newnumber)
-{
-	t_stack *firststack;
-
-	if (!(firststack = ft_new_elem(newnumber)))
-		return (-1);
-	firststack->next = *stack;
-	*stack = firststack;
-	return (0);
-}
-
-int     ft_pop_stack(t_stack **stack)
-{
-    t_stack *del;
-
-    if (!*stack)
+    stack = ts->astack;
+    if (ts->bstack)
         return (-1);
-    del = *stack;
-    *stack = (*stack)->next;
-    free(del);
+    while (stack && stack->next)
+    {
+        if (stack->number > stack->next->number)
+            return (-1);
+        stack = stack->next;
+    }
     return (0);
+}
+
+t_stack	*ft_bottom_stack(t_stack *stack)
+{
+	while (stack && stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack	*ft_before_bottom_stack(t_stack *stack)
+{
+	while (stack && stack->next->next)
+		stack = stack->next;
+	return (stack);
 }

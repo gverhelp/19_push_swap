@@ -49,9 +49,15 @@ int     ft_push(t_stack *ts, int a);
 int     ft_rotate(t_stack *ts, int a);
 int     ft_rev_rotate(t_stack *ts, int a);
 
+//////////// Manip stack ////////////
+
+int     ft_check_order(t_stack *ts);
+t_stack	*ft_bottom_stack(t_stack *stack);
+t_stack	*ft_before_bottom_stack(t_stack *stack);
+
 ////////////// Utils ////////////////
 
 void	ft_init_struct(t_stack *ts);
-void	ft_exit(char *str);
+void	ft_exit(char *str, int fd);
 
 #endif
