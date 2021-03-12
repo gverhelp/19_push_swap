@@ -61,14 +61,13 @@ int		ft_parse(int argc, char **argv, t_stack *ts)
 {
 	int		a;
 
-	a = argc - 1;
-	while (a > 0)
+	a = 1;
+	while (a < argc)
 	{
 		if (ft_youanumber(argv[a]) == -1 || ft_check_dupli(argv[a], argv) == -1)
 			return (-1);
-		if (ft_push_stack(&ts->astack, ft_atoi(argv[a])) == -1)
-			return (-1);
-		a--;
+		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(argv[a])));
+		a++;
 	}
 
 
@@ -95,16 +94,3 @@ int		ft_parse(int argc, char **argv, t_stack *ts)
 *///////////////////////////////////
 	return (0);
 }
-
-
-
-
-
-
-//	ts->firsta = ts->astack;
-//	while (ts->astack)
-//	{
-//		printf("%d\n", ts->astack->number);
-//		ts->astack = ts->astack->next;
-//	}
-//	ts->astack = ts->firsta;

@@ -18,10 +18,14 @@ void	ft_init_struct(t_stack *ts)
 	ts->bstack = NULL;
 	ts->next = NULL;
 	ts->number = 0;
+	ts->line = NULL;
 }
 
-void	ft_exit(char *str, int fd)
+void	ft_exit(t_stack *ts, char *str, int fd)
 {
 	ft_putendl_fd(str, fd);
+	free(ts->line);
+	ft_delete_all_stack(&ts->astack);
+	ft_delete_all_stack(&ts->bstack);
 	exit(0);
 }

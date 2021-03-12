@@ -15,11 +15,12 @@
 int		main(int argc, char **argv)
 {
 	t_stack	ts;
+
 	ft_init_struct(&ts);
 	if (argc > 1)
 	{
 		if (ft_parse(argc, argv, &ts) == -1)
-			ft_exit("Error", 2);
+			ft_exit(&ts, "Error", 2);
 	}
 	return (0);
 }

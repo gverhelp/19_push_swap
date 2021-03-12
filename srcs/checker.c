@@ -54,19 +54,17 @@ int		what_operation(char *str, t_stack *ts)
 int     main(int argc, char **argv)
 {
     t_stack	ts;
-	char	*line;
 
-	line = NULL;
 	ft_init_struct(&ts);
 	if (argc > 1)
 	{
 		if (ft_parse(argc, argv, &ts) == -1)
-			ft_exit("Error", 2);
+			ft_exit(&ts, "Error", 2);
 	}
-	while (ft_check_order(&ts) == -1 && get_next_line(0, &line) > 0)
+	while (/*ft_check_order(&ts) == -1 &&*/ get_next_line(0, &ts.line) > 0)
 	{
-		if (what_operation(line, &ts) == -1)
-			ft_exit("Error", 2);
+		if (what_operation(ts.line, &ts) == -1)
+			ft_exit(&ts, "Error", 2);
 /*////////////////////////////////////////////////// Afficher stack a
     	ts.firsta = ts.astack;
 		while (ts.astack)
@@ -84,10 +82,14 @@ int     main(int argc, char **argv)
 		}
 		ts.bstack = ts.firstb;
 */////////////////////////////////////////////////
-		free(line);
+		free(ts.line);
 	}
-	free(line);
+//	free(st.line);
 	if (ft_check_order(&ts) == 0)
-		ft_exit("OK", 1);
+		ft_putendl_fd("OK", 1);
+	else
+		ft_putendl_fd("KO", 1);
+	ft_delete_all_stack(&ts.astack);
+	ft_delete_all_stack(&ts.bstack);
     return (0);
 }

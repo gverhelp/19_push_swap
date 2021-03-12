@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_list.c                                      :+:      :+:    :+:   */
+/*   change_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,21 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_stack_add_back(t_stack **alst, t_stack *new)
+{
+	t_stack *lst;
+
+	lst = *alst;
+	if (*alst)
+	{
+		while (lst->next != NULL)
+			lst = lst->next;
+		lst->next = new;
+	}
+	else
+		*alst = new;
+}
 
 t_stack	*ft_new_elem(int newnumber)
 {
@@ -45,4 +60,23 @@ int     ft_pop_stack(t_stack **stack)
     *stack = (*stack)->next;
     free(del);
     return (0);
+}
+
+int		ft_delete_all_stack(t_stack **stack)
+{
+	t_stack *tmp;
+
+	tmp = *stack;
+    if (!*stack)
+        return (-1);
+	else
+	{
+		while (*stack) 
+		{
+			tmp = *stack;
+			*stack = (*stack)->next;
+			free(tmp);
+		}
+	}
+	return (0);
 }

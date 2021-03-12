@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 SRCS            =       operations.c \
-						change_list.c \
+						change_stack.c \
 						parsing.c \
 						manip_stack.c \
 						utils.c \
