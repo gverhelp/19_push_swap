@@ -12,6 +12,11 @@
 
 #include "../include/push_swap.h"
 
+int		ft_print_operations()
+{
+	return (0);
+}
+
 int		main(int argc, char **argv)
 {
 	t_stack	ts;
@@ -22,5 +27,6 @@ int		main(int argc, char **argv)
 		if (ft_parse(argc, argv, &ts) == -1)
 			ft_exit(&ts, "Error", 2);
 	}
+	ft_start_algo();
 	return (0);
 }

@@ -62,7 +62,7 @@ int     ft_pop_stack(t_stack **stack)
     return (0);
 }
 
-int		ft_delete_all_stack(t_stack **stack)
+int		ft_delete_stack(t_stack **stack)
 {
 	t_stack *tmp;
 

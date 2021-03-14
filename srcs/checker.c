@@ -84,12 +84,12 @@ int     main(int argc, char **argv)
 */////////////////////////////////////////////////
 		free(ts.line);
 	}
-//	free(st.line);
+	free(ts.line);
 	if (ft_check_order(&ts) == 0)
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
-	ft_delete_all_stack(&ts.astack);
-	ft_delete_all_stack(&ts.bstack);
+	ft_delete_stack(&ts.astack);
+	ft_delete_stack(&ts.bstack);
     return (0);
 }

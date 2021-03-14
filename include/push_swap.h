@@ -43,7 +43,7 @@ int		ft_push_stack(t_stack **stack, int newnumber);
 int     ft_pop_stack(t_stack **stack);
 t_stack	*ft_bottom_stack(t_stack *stack);
 t_stack	*ft_before_bottom_stack(t_stack *stack);
-int		ft_delete_all_stack(t_stack **stack);
+int		ft_delete_stack(t_stack **stack);
 
 //////////// Operations //////////////
 
@@ -57,6 +57,10 @@ int     ft_rev_rotate(t_stack *ts, int a);
 int     ft_check_order(t_stack *ts);
 t_stack	*ft_bottom_stack(t_stack *stack);
 t_stack	*ft_before_bottom_stack(t_stack *stack);
+
+///////// Push_swap_algo ////////////
+
+int ft_start_algo();
 
 ////////////// Utils ////////////////
 

@@ -10,34 +10,35 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS            =       operations.c \
-						change_stack.c \
-						parsing.c \
-						manip_stack.c \
-						utils.c \
+SRCS =  operations.c \
+		push_swap_algo.c \
+		change_stack.c \
+		parsing.c \
+		manip_stack.c \
+		utils.c \
 
-SRC_DIR         =       srcs/
-SRC             =       $(addprefix $(SRC_DIR), $(SRCS))
-OBJ             =       $(SRC:%.c=%.o)
+SRC_DIR = srcs/
+SRC = $(addprefix $(SRC_DIR), $(SRCS))
+OBJ = $(SRC:%.c=%.o)
 
-CHECKER         =       checker
-PUSH_SWAP       =       push_swap
+CHECKER = checker
+PUSH_SWAP = push_swap
 
 
-UNAME_S         =      $(shell uname -s)
-LIBFT           =       libft/libft.a
-LIBFTPATH       =		./libft
+UNAME_S = $(shell uname -s)
+LIBFT = libft/libft.a
+LIBFTPATH =	./libft
  
 
 ifeq ($(UNAME_S), Darwin)
-		LFT             =       $(LIBFT)
+		LFT = $(LIBFT)
 endif
 ifeq ($(UNAME_S), Linux)
-		LFT             =       -L$(LIBFTPATH) -lft
+		LFT = -L$(LIBFTPATH) -lft
 endif
 
-CC                      =       gcc -g -Wall -Wextra -Werror -I./libft/include/ -I./include/
-RM                      =       rm -f
+CC = gcc -g -Wall -Wextra -Werror -I./libft/include/ -I./include/
+RM = rm -f
 
 all: libft_all $(CHECKER) $(PUSH_SWAP)
 $(CHECKER): $(OBJ) $(SRC_DIR)$(CHECKER).o $(LIBFT)
