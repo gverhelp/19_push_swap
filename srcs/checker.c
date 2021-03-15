@@ -12,37 +12,37 @@
 
 #include "../include/push_swap.h"
 
-int		what_operation(char *str, t_stack *ts)
+int		ft_what_operation(t_stack *ts)
 {
-	if (!ft_strcmp(str, "sa"))
+	if (!ft_strcmp(ts->line, "sa"))
 		return (ft_swap(ts, 1));
-	if (!ft_strcmp(str, "sb"))
+	if (!ft_strcmp(ts->line, "sb"))
 		return (ft_swap(ts, 2));
-	if (!ft_strcmp(str, "ss"))
+	if (!ft_strcmp(ts->line, "ss"))
 	{
 		if (ft_swap(ts, 1) == -1 || ft_swap(ts, 2) == -1)
 			return (-1);
 		return (0);
 	}
-	if (!ft_strcmp(str, "pa"))
+	if (!ft_strcmp(ts->line, "pa"))
 		return (ft_push(ts, 1));
-	if (!ft_strcmp(str, "pb"))
+	if (!ft_strcmp(ts->line, "pb"))
 		return (ft_push(ts, 2));
-	if (!ft_strcmp(str, "ra"))
+	if (!ft_strcmp(ts->line, "ra"))
 		return (ft_rotate(ts, 1));
-	if (!ft_strcmp(str, "rb"))
+	if (!ft_strcmp(ts->line, "rb"))
 		return (ft_rotate(ts, 2));
-	if (!ft_strcmp(str, "rr"))
+	if (!ft_strcmp(ts->line, "rr"))
 	{
 		if (ft_rotate(ts, 1) == -1 || ft_rotate(ts, 2) == -1)
 			return (-1);
 		return (0);
 	}
-	if (!ft_strcmp(str, "rra"))
+	if (!ft_strcmp(ts->line, "rra"))
 		return (ft_rev_rotate(ts, 1));
-	if (!ft_strcmp(str, "rrb"))
+	if (!ft_strcmp(ts->line, "rrb"))
 		return (ft_rev_rotate(ts, 2));
-	if (!ft_strcmp(str, "rrr"))
+	if (!ft_strcmp(ts->line, "rrr"))
 	{
 		if (ft_rev_rotate(ts, 1) == -1 || ft_rev_rotate(ts, 2) == -1)
 			return (-1);
@@ -63,7 +63,7 @@ int     main(int argc, char **argv)
 	}
 	while (/*ft_check_order(&ts) == -1 &&*/ get_next_line(0, &ts.line) > 0)
 	{
-		if (what_operation(ts.line, &ts) == -1)
+		if (ft_what_operation(&ts) == -1)
 			ft_exit(&ts, "Error", 2);
 /*////////////////////////////////////////////////// Afficher stack a
     	ts.firsta = ts.astack;
@@ -88,6 +88,7 @@ int     main(int argc, char **argv)
 	if (ft_check_order(&ts) == 0)
 		ft_putendl_fd("OK", 1);
 	else
+	
 		ft_putendl_fd("KO", 1);
 	ft_delete_stack(&ts.astack);
 	ft_delete_stack(&ts.bstack);

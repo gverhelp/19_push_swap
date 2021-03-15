@@ -12,11 +12,6 @@
 
 #include "../include/push_swap.h"
 
-int		ft_print_operations()
-{
-	return (0);
-}
-
 int		main(int argc, char **argv)
 {
 	t_stack	ts;
@@ -25,8 +20,30 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (ft_parse(argc, argv, &ts) == -1)
+		{
+//			printf("ici3\n");
 			ft_exit(&ts, "Error", 2);
+		}
 	}
-	ft_start_algo();
+	ft_start_algo(&ts);
+
+
+////////////////////////////////////////////////// Afficher stack a
+    ts.firsta = ts.astack;
+	while (ts.astack)
+	{
+		printf("stack a : %d\n", ts.astack->number);
+		ts.astack = ts.astack->next;
+	}
+	ts.astack = ts.firsta;
+////////////////////////////////////////////////// Afficher stack b
+    ts.firstb = ts.bstack;
+	while (ts.bstack)
+	{
+		printf("stack b : %d\n", ts.bstack->number);
+		ts.bstack = ts.bstack->next;
+	}
+	ts.bstack = ts.firstb;
+/////////////////////////////////////////////////
 	return (0);
 }

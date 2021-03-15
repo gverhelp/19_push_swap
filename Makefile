@@ -12,6 +12,7 @@
 
 SRCS =  operations.c \
 		push_swap_algo.c \
+		print_op.c \
 		change_stack.c \
 		parsing.c \
 		manip_stack.c \
@@ -20,16 +21,12 @@ SRCS =  operations.c \
 SRC_DIR = srcs/
 SRC = $(addprefix $(SRC_DIR), $(SRCS))
 OBJ = $(SRC:%.c=%.o)
-
 CHECKER = checker
 PUSH_SWAP = push_swap
-
-
 UNAME_S = $(shell uname -s)
 LIBFT = libft/libft.a
 LIBFTPATH =	./libft
  
-
 ifeq ($(UNAME_S), Darwin)
 		LFT = $(LIBFT)
 endif

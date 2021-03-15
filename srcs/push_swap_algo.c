@@ -12,7 +12,9 @@
 
 #include "../include/push_swap.h"
 
-int ft_start_algo(void)
+int ft_start_algo(t_stack *ts)
 {
+    if (ft_print_op("rra") == -1)
+        ft_exit(ts, "Error", 2);
     return (0);
 }

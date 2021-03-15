@@ -62,6 +62,10 @@ t_stack	*ft_before_bottom_stack(t_stack *stack);
 
 int ft_start_algo();
 
+/////////// Print operations /////////////
+
+int		ft_print_op(char *str);
+
 ////////////// Utils ////////////////
 
 void	ft_init_struct(t_stack *ts);

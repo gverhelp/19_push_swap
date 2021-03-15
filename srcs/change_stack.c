@@ -67,7 +67,7 @@ int		ft_delete_stack(t_stack **stack)
 	t_stack *tmp;
 
 	tmp = *stack;
-    if (!*stack)
+	if (!*stack)
         return (-1);
 	else
 	{
