@@ -5,17 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/11 15:39:59 by gverhelp          #+#    #+#              #
-#    Updated: 2021/03/08 17:43:28 by gverhelp         ###   ########.fr        #
+#    Created: 2021/03/12 12:18:47 by gverhelp          #+#    #+#              #
+#    Updated: 2021/03/26 20:38:12 by gverhelp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =  operations.c \
+		operations_utils.c \
 		push_swap_algo.c \
 		print_op.c \
-		change_stack.c \
+		manage_stack.c \
 		parsing.c \
-		manip_stack.c \
+		stack_data.c \
 		utils.c \
 
 SRC_DIR = srcs/

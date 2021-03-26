@@ -55,8 +55,8 @@ int     ft_rev_rotate(t_stack *ts, int a);
 //////////// Manip stack ////////////
 
 int     ft_check_order(t_stack *ts);
-t_stack	*ft_bottom_stack(t_stack *stack);
-t_stack	*ft_before_bottom_stack(t_stack *stack);
+t_stack	*ft_get_last_elem(t_stack *stack);
+t_stack	*ft_get_before_last_elem(t_stack *stack);
 
 ///////// Push_swap_algo ////////////
 

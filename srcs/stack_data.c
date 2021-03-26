@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_list.c                                      :+:      :+:    :+:   */
+/*   stack_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,18 +26,4 @@ int     ft_check_order(t_stack *ts)
         stack = stack->next;
     }
     return (0);
-}
-
-t_stack	*ft_bottom_stack(t_stack *stack)
-{
-	while (stack && stack->next)
-		stack = stack->next;
-	return (stack);
-}
-
-t_stack	*ft_before_bottom_stack(t_stack *stack)
-{
-	while (stack && stack->next->next)
-		stack = stack->next;
-	return (stack);
 }

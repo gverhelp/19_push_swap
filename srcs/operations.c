@@ -56,12 +56,11 @@ int     ft_rotate(t_stack *ts, int a)
 
     if (a == 1)
     {
+        write(1, "OK\n", 3);
         if (!ts->astack)
             ft_exit(ts, "KO", 1);
-        if (!ts->astack->next)
-            return (0);
         top = ts->astack;
-        bot = ft_bottom_stack(ts->astack);
+        bot = ft_get_last_elem(ts->astack);
         ts->astack = top->next;
         top->next = NULL;
         bot->next = top;
@@ -70,10 +69,8 @@ int     ft_rotate(t_stack *ts, int a)
     {
         if (!ts->bstack)
             ft_exit(ts, "KO", 1);
-        if (!ts->bstack->next)
-            return (0);
         top = ts->bstack;
-        bot = ft_bottom_stack(ts->bstack);
+        bot = ft_get_last_elem(ts->bstack);
         ts->bstack = top->next;
         top->next = NULL;
         bot->next = top;
@@ -90,10 +87,8 @@ int     ft_rev_rotate(t_stack *ts, int a)
     {
         if (!ts->astack)
             ft_exit(ts, "KO", 1);
-        if (!ts->astack->next)
-            return (0);
-        bot = ft_bottom_stack(ts->astack);
-        before_bot = ft_before_bottom_stack(ts->astack);
+        bot = ft_get_last_elem(ts->astack);
+        before_bot = ft_get_before_last_elem(ts->astack);
         before_bot->next = NULL;
         bot->next = ts->astack;
         ts->astack = bot;
@@ -102,10 +97,8 @@ int     ft_rev_rotate(t_stack *ts, int a)
     {
         if (!ts->bstack)
             ft_exit(ts, "KO", 1);
-        if (!ts->bstack->next)
-            return (0);
-        bot = ft_bottom_stack(ts->bstack);
-        before_bot = ft_before_bottom_stack(ts->bstack);
+        bot = ft_get_last_elem(ts->bstack);
+        before_bot = ft_get_before_last_elem(ts->bstack);
         before_bot->next = NULL;
         bot->next = ts->bstack;
         ts->bstack = bot;

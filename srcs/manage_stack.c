@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   change_stack.c                                      :+:      :+:    :+:   */
+/*   manage_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -37,29 +37,6 @@ t_stack	*ft_new_elem(int newnumber)
 	lst->number = newnumber;
 	lst->next = NULL;
 	return (lst);
-}
-
-int		ft_push_stack(t_stack **stack, int newnumber)
-{
-	t_stack *firststack;
-
-	if (!(firststack = ft_new_elem(newnumber)))
-		return (-1);
-	firststack->next = *stack;
-	*stack = firststack;
-	return (0);
-}
-
-int     ft_pop_stack(t_stack **stack)
-{
-    t_stack *del;
-
-    if (!*stack)
-        return (-1);
-    del = *stack;
-    *stack = (*stack)->next;
-    free(del);
-    return (0);
 }
 
 int		ft_delete_stack(t_stack **stack)

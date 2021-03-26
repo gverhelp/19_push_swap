@@ -75,7 +75,7 @@ int		ft_parse(int argc, char **argv, t_stack *ts)
 //	ft_push_stack(&ts->bstack, 7);
 
 
-///////////////////////////////////     Afficher le stack a
+/*///////////////////////////////////     Afficher le stack a
 	ts->firsta = ts->astack;
 	while (ts->astack)
 	{
@@ -91,6 +91,6 @@ int		ft_parse(int argc, char **argv, t_stack *ts)
 		ts->bstack = ts->bstack->next;
 	}
 	ts->bstack = ts->firstb;
-///////////////////////////////////
+*///////////////////////////////////
 	return (0);
 }

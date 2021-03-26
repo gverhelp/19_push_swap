@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,38 +12,39 @@
 
 #include "../include/push_swap.h"
 
-int		main(int argc, char **argv)
+int		ft_push_stack(t_stack **stack, int newnumber)
 {
-	t_stack	ts;
+	t_stack *firststack;
 
-	ft_init_struct(&ts);
-	if (argc > 1)
-	{
-		if (ft_parse(argc, argv, &ts) == -1)
-		{
-//			printf("ici3\n");
-			ft_exit(&ts, "Error", 2);
-		}
-	}
-	ft_start_algo(&ts);
-
-
-/*////////////////////////////////////////////////// Afficher stack a
-    ts.firsta = ts.astack;
-	while (ts.astack)
-	{
-		printf("stack a : %d\n", ts.astack->number);
-		ts.astack = ts.astack->next;
-	}
-	ts.astack = ts.firsta;
-////////////////////////////////////////////////// Afficher stack b
-    ts.firstb = ts.bstack;
-	while (ts.bstack)
-	{
-		printf("stack b : %d\n", ts.bstack->number);
-		ts.bstack = ts.bstack->next;
-	}
-	ts.bstack = ts.firstb;
-*/////////////////////////////////////////////////
+	if (!(firststack = ft_new_elem(newnumber)))
+		return (-1);
+	firststack->next = *stack;
+	*stack = firststack;
 	return (0);
+}
+
+int     ft_pop_stack(t_stack **stack)
+{
+    t_stack *del;
+
+    if (!*stack)
+        return (-1);
+    del = *stack;
+    *stack = (*stack)->next;
+    free(del);
+    return (0);
+}
+
+t_stack	*ft_get_last_elem(t_stack *stack)
+{
+	while (stack && stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack	*ft_get_before_last_elem(t_stack *stack)
+{
+	while (stack && stack->next->next)
+		stack = stack->next;
+	return (stack);
 }
