@@ -14,18 +14,19 @@
 
 int		main(int argc, char **argv)
 {
+	char	**stack;
 	t_stack	ts;
 
+	stack = NULL;
 	ft_init_struct(&ts);
-	if (argc > 1)
-	{
-		if (ft_parse(argc, argv, &ts) == -1)
-		{
-//			printf("ici3\n");
-			ft_exit(&ts, "Error", 2);
-		}
-	}
-	ft_start_algo(&ts);
+	if (argc != 2)
+		return (0);
+	if (argc == 2)
+		stack = ft_split(argv[1], ' ');
+	if (ft_parse(stack, &ts) == -1)
+		ft_exit(&ts, "Error", 2);
+	if (ft_start_algo(&ts) == -1)
+		ft_exit(&ts, "Error", 2);
 
 
 /*////////////////////////////////////////////////// Afficher stack a
@@ -45,5 +46,9 @@ int		main(int argc, char **argv)
 	}
 	ts.bstack = ts.firstb;
 */////////////////////////////////////////////////
+
+	free(ts.sortedstack);
+	ft_delete_stack(&ts.astack);
+	ft_delete_stack(&ts.bstack);
 	return (0);
 }

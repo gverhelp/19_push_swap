@@ -23,7 +23,7 @@ int     ft_swap(t_stack *ts, int a)
     if (a == 2)
         stack = ts->bstack;
     if (!stack || !(stack->next))
-        ft_exit(ts, "KO", 1);
+        return (-1);
     tmp = stack->number;
     stack->number = stack->next->number;
     stack->next->number = tmp;
@@ -35,14 +35,14 @@ int     ft_push(t_stack *ts, int a)
     if (a == 1)
     {
         if (!ts->bstack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         ft_push_stack(&ts->astack, ts->bstack->number);
         ft_pop_stack(&ts->bstack);
     }
     if (a == 2)
     {
         if (!ts->astack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         ft_push_stack(&ts->bstack, ts->astack->number);
         ft_pop_stack(&ts->astack);
     }
@@ -56,9 +56,8 @@ int     ft_rotate(t_stack *ts, int a)
 
     if (a == 1)
     {
-        write(1, "OK\n", 3);
         if (!ts->astack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         top = ts->astack;
         bot = ft_get_last_elem(ts->astack);
         ts->astack = top->next;
@@ -68,7 +67,7 @@ int     ft_rotate(t_stack *ts, int a)
     if (a == 2)
     {
         if (!ts->bstack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         top = ts->bstack;
         bot = ft_get_last_elem(ts->bstack);
         ts->bstack = top->next;
@@ -86,7 +85,7 @@ int     ft_rev_rotate(t_stack *ts, int a)
     if (a == 1)
     {
         if (!ts->astack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         bot = ft_get_last_elem(ts->astack);
         before_bot = ft_get_before_last_elem(ts->astack);
         before_bot->next = NULL;
@@ -96,7 +95,7 @@ int     ft_rev_rotate(t_stack *ts, int a)
     if (a == 2)
     {
         if (!ts->bstack)
-            ft_exit(ts, "KO", 1);
+            return (-1);
         bot = ft_get_last_elem(ts->bstack);
         before_bot = ft_get_before_last_elem(ts->bstack);
         before_bot->next = NULL;

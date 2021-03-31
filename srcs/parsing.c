@@ -57,18 +57,24 @@ int		ft_youanumber(char *str)
 	return (0);
 }
 
-int		ft_parse(int argc, char **argv, t_stack *ts)
+int		ft_parse(char **stack, t_stack *ts)
 {
 	int		a;
+	int		len;
 
-	a = 1;
-	while (a < argc)
+	a = 0;
+	len = 0;
+	while (stack[len])
+		len++;
+	while (a < len)
 	{
-		if (ft_youanumber(argv[a]) == -1 || ft_check_dupli(argv[a], argv) == -1)
+		if (ft_youanumber(stack[a]) == -1 || ft_check_dupli(stack[a], stack) == -1)
 			return (-1);
-		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(argv[a])));
+		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(stack[a])));
+		ts->len++;
 		a++;
 	}
+	ft_free_tab(stack);
 
 
 //	ft_push_stack(&ts->bstack, 20);    //// to do some tests

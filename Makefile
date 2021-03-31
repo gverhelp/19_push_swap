@@ -13,8 +13,8 @@
 SRCS =  operations.c \
 		operations_utils.c \
 		push_swap_algo.c \
-		print_op.c \
 		manage_stack.c \
+		get_sort_stack.c \
 		parsing.c \
 		stack_data.c \
 		utils.c \
