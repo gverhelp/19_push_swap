@@ -44,6 +44,12 @@ void	ft_stack_add_back(t_stack **alst, t_stack *new);
 t_stack	*ft_new_elem(int number);
 int		ft_delete_stack(t_stack **stack);
 
+//////////// Do operations ///////////
+
+int		ft_what_operation(t_stack *ts);
+int		ft_what_operation2(t_stack *ts);
+void    ft_print_op(t_stack *ts, char *str);
+
 //////////// Operations //////////////
 
 int     ft_swap(t_stack *ts, int a);
@@ -65,12 +71,11 @@ int     ft_check_order(t_stack *ts);
 ///////// Push_swap_algo ////////////
 
 int 	ft_start_algo();
-void	ft_print_op(char *str);
 
 ////////// get sort stack //////////
 
-int	ft_sort_stack(t_stack *ts);
-int	ft_sort_stack2(t_stack *ts);
+int	ft_get_sort_stack(t_stack *ts);
+int	ft_get_sort_stack2(t_stack *ts);
 void	ft_true_swap(int **tab, int a, int b);
 
 ////////////// Utils ////////////////

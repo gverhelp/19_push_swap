@@ -21,7 +21,7 @@ int		ft_check_dupli(char *str, char **set)
 	count = 0;
 	while (set[a])
 	{
-		if (!ft_strcmp(set[a], str))
+		if (ft_atoi(set[a]) == ft_atoi(str))
 			count++;
 		a++;
 	}

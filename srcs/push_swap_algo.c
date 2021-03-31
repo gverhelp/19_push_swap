@@ -12,36 +12,85 @@
 
 #include "../include/push_swap.h"
 
-void    ft_print_op(char *str)
+int	ft_do_ra(t_stack *ts, int pos)
 {
-	if (!ft_strcmp(str, "sa"))
-		ft_putendl_fd("sa", 1);
-	if (!ft_strcmp(str, "sb"))
-		ft_putendl_fd("sb", 1);
-	if (!ft_strcmp(str, "ss"))
-		ft_putendl_fd("ss", 1);
-	if (!ft_strcmp(str, "pa"))
-		ft_putendl_fd("pa", 1);
-	if (!ft_strcmp(str, "pb"))
-		ft_putendl_fd("pb", 1);
-	if (!ft_strcmp(str, "ra"))
-		ft_putendl_fd("ra", 1);
-	if (!ft_strcmp(str, "rb"))
-		ft_putendl_fd("rb", 1);
-	if (!ft_strcmp(str, "rr"))
-		ft_putendl_fd("rr", 1);
-	if (!ft_strcmp(str, "rra"))
-		ft_putendl_fd("rra", 1);
-	if (!ft_strcmp(str, "rrb"))
-		ft_putendl_fd("rrb", 1);
-	if (!ft_strcmp(str, "rrr"))
-		ft_putendl_fd("rrr", 1);
+	while (pos > 1)
+	{
+		ft_print_op(ts, "ra");
+		pos--;
+	}
+	ft_print_op(ts, "pb");
+	return (0);
+}
+
+int	ft_do_rra(t_stack *ts, int pos)
+{
+	while (pos <= ts->len)
+	{
+		ft_print_op(ts, "rra");
+		pos++;
+	}
+	ft_print_op(ts, "pb");
+	return (0);
+}
+
+int	ft_find_lower(t_stack *ts, int find)
+{
+	int	count;
+	t_stack *stack;
+
+	count = 1;
+	stack = ts->astack;
+	while (stack)
+	{
+		if (find == stack->number)
+			return (count);
+		count++;
+		stack = stack->next;
+	}
+	return (0);
+}
+
+int	ft_search_lower(t_stack *ts)
+{
+	int a;
+	int find;
+	int pos;
+	int len;
+
+	a = 0;
+	pos = 0;
+	find = 0;
+	len = ts->len;
+	while (0 < ts->len)
+	{
+		if (ts->len == 1)
+			break ;
+		find = ts->sortedstack[a];
+		pos = ft_find_lower(ts, find);
+//		printf("pos : %d\n", pos);
+		if (pos < (ts->len / 2))
+			ft_do_ra(ts, pos);
+		else
+			ft_do_rra(ts, pos);
+		ts->len--;
+		a++;
+	}
+	ts->len = len;
+	a = 0;
+	while (a < ts->len - 1)
+	{
+		ft_print_op(ts, "pa");
+		a++;
+	}
+	return (0);
 }
 
 int ft_start_algo(t_stack *ts)
 {
-    if (ft_sort_stack(ts) == -1)
+    if (ft_get_sort_stack(ts) == -1)
 		return (-1);
+	ft_search_lower(ts);
     return (0);
 }
 
