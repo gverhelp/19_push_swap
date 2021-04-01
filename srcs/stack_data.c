@@ -12,6 +12,30 @@
 
 #include "../include/push_swap.h"
 
+int ft_get_lower_number(t_stack *ts, t_stack *mystack)
+{
+    int     count;
+    int     min;
+    int     pos;
+    t_stack *stack;
+
+    count = 0;
+    pos = 0;
+    min = mystack->number;
+    stack = ts->astack;
+    while (stack)
+    {
+        if (min > stack->number)
+        {
+            min = stack->number;
+            pos = count;
+        }
+        count++;
+        stack = stack->next;
+    }
+    return (count);
+}
+
 int     ft_check_order(t_stack *ts)
 {
     t_stack *stack;

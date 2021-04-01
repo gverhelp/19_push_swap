@@ -67,15 +67,29 @@ t_stack	*ft_get_before_last_elem(t_stack *stack);
 //////////// stack data ////////////
 
 int     ft_check_order(t_stack *ts);
+int 	ft_get_lower_number(t_stack *ts, t_stack *mystack);
+
+///////////// ra or rra /////////////
+
+int	ft_ra_or_rra(t_stack *ts, int a, int wichstack);
 
 ///////// Push_swap_algo ////////////
 
-int 	ft_start_algo();
+int 	ft_start_algo(t_stack *ts);
+int		ft_wich_algo(t_stack *ts);
+int		ft_len_is_2(t_stack *ts);
+int		ft_len_is_3(t_stack *ts);
+int		ft_len_is_5(t_stack *ts);
+
+//int		ft_ra_or_rra(t_stack *ts);
+//int		ft_find_lower(t_stack *ts, int find);
+//int		ft_do_rra(t_stack *ts, int pos);
+//int		ft_do_ra(t_stack *ts, int pos);
 
 ////////// get sort stack //////////
 
-int	ft_get_sort_stack(t_stack *ts);
-int	ft_get_sort_stack2(t_stack *ts);
+int		ft_get_sort_stack(t_stack *ts);
+int		ft_get_sort_stack2(t_stack *ts);
 void	ft_true_swap(int **tab, int a, int b);
 
 ////////////// Utils ////////////////

@@ -45,4 +45,5 @@ void	ft_free_tab(char **tab)
 		a++;
 	}
 	free(tab);
+	tab = NULL;
 }

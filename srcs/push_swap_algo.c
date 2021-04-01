@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_algo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,6 +12,95 @@
 
 #include "../include/push_swap.h"
 
+int	ft_len_is_5(t_stack *ts)
+{
+	int		pos;
+	t_stack *astack;
+	t_stack *bstack;
+
+	astack = ts->astack;
+	bstack = ts->bstack;
+	pos = ft_get_lower_number(ts, ts->astack);
+	ft_ra_or_rra(ts, pos, 1);
+	return (0);
+}
+
+int	ft_len_is_3(t_stack *ts)
+{
+	t_stack *stack;
+
+	stack = ts->astack;
+	if (stack->number > stack->next->number &&
+		stack->next->number > stack->next->next->number &&
+		stack->number > stack->next->next->number)
+	{
+		ft_print_op(ts, "sa");
+		ft_print_op(ts, "rra");
+	}
+	else if (stack->number > stack->next->number &&
+		stack->next->number < stack->next->next->number &&
+		stack->number < stack->next->next->number)
+		ft_print_op(ts, "sa");
+	else if (stack->number > stack->next->number &&
+		stack->next->number < stack->next->next->number &&
+		stack->number > stack->next->next->number)
+		ft_print_op(ts, "ra");
+	else if (stack->number < stack->next->number &&
+		stack->next->number > stack->next->next->number &&
+		stack->number < stack->next->next->number)
+	{
+		ft_print_op(ts, "sa");
+		ft_print_op(ts, "ra");
+	}
+	else if (stack->number < stack->next->number &&
+		stack->next->number > stack->next->next->number &&
+		stack->number > stack->next->next->number)
+		ft_print_op(ts, "rra");
+	return (0);
+}
+
+int	ft_len_is_2(t_stack *ts)
+{
+	t_stack *stack;
+
+	stack = ts->astack;
+	if (stack->number > stack->next->number)
+		ft_print_op(ts, "ra");
+	return (0);
+}
+
+int	ft_wich_algo(t_stack *ts)
+{
+	if (!ft_check_order(ts))
+		return (0);
+	if (ts->len == 2)
+		ft_len_is_2(ts);
+	if (ts->len == 3)
+		ft_len_is_3(ts);
+	if (ts->len == 5)
+		ft_len_is_5(ts);
+	return (0);
+}
+
+int ft_start_algo(t_stack *ts)
+{
+    if (ft_get_sort_stack(ts) == -1)
+		return (-1);
+	ft_wich_algo(ts);
+    return (0);
+}
+
+
+
+
+/*	ft_print_op("rra");
+	ft_print_op("pb");
+	ft_print_op("sa");
+	ft_print_op("rra");
+	ft_print_op("pa"); */
+
+
+/* 
 int	ft_do_ra(t_stack *ts, int pos)
 {
 	while (pos > 1)
@@ -51,7 +140,7 @@ int	ft_find_lower(t_stack *ts, int find)
 	return (0);
 }
 
-int	ft_search_lower(t_stack *ts)
+int	ft_ra_or_rra(t_stack *ts)
 {
 	int a;
 	int find;
@@ -62,13 +151,10 @@ int	ft_search_lower(t_stack *ts)
 	pos = 0;
 	find = 0;
 	len = ts->len;
-	while (0 < ts->len)
+	while (1 < ts->len)
 	{
-		if (ts->len == 1)
-			break ;
 		find = ts->sortedstack[a];
 		pos = ft_find_lower(ts, find);
-//		printf("pos : %d\n", pos);
 		if (pos < (ts->len / 2))
 			ft_do_ra(ts, pos);
 		else
@@ -85,20 +171,4 @@ int	ft_search_lower(t_stack *ts)
 	}
 	return (0);
 }
-
-int ft_start_algo(t_stack *ts)
-{
-    if (ft_get_sort_stack(ts) == -1)
-		return (-1);
-	ft_search_lower(ts);
-    return (0);
-}
-
-
-
-
-/*	ft_print_op("rra");
-	ft_print_op("pb");
-	ft_print_op("sa");
-	ft_print_op("rra");
-	ft_print_op("pa"); */
+*/
