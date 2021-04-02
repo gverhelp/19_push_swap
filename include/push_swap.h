@@ -21,9 +21,12 @@ typedef struct	s_stack t_stack;
 struct s_stack
 {
 	int		number;
-	int		len;
+	int		lena;
+	int		lenb;
 	char	*line;
 	int		*sortedstack;
+	int		nbchunks;
+	int		**chunks;
 	t_stack	*next;
 	t_stack	*astack;
 	t_stack	*bstack;
@@ -67,11 +70,14 @@ t_stack	*ft_get_before_last_elem(t_stack *stack);
 //////////// stack data ////////////
 
 int     ft_check_order(t_stack *ts);
-int 	ft_get_lower_number(t_stack *ts, t_stack *mystack);
+int 	ft_get_lower_number(t_stack *mystack);
 
 ///////////// ra or rra /////////////
 
-int	ft_ra_or_rra(t_stack *ts, int a, int wichstack);
+int		ft_r_or_rr(t_stack *ts, int a, int wichstack);
+int 	ft_r_or_rr2(t_stack *ts, int pos, int wichstack);
+void	ft_do_r(t_stack *ts, int pos, int wichstack);
+void	ft_do_rr(t_stack *ts, int pos, int wichstack);
 
 ///////// Push_swap_algo ////////////
 
@@ -81,10 +87,9 @@ int		ft_len_is_2(t_stack *ts);
 int		ft_len_is_3(t_stack *ts);
 int		ft_len_is_5(t_stack *ts);
 
-//int		ft_ra_or_rra(t_stack *ts);
-//int		ft_find_lower(t_stack *ts, int find);
-//int		ft_do_rra(t_stack *ts, int pos);
-//int		ft_do_ra(t_stack *ts, int pos);
+/////////// Algo big len ////////////
+
+int 	ft_len_is_big(t_stack *ts);
 
 ////////// get sort stack //////////
 
@@ -97,5 +102,14 @@ void	ft_true_swap(int **tab, int a, int b);
 void	ft_init_struct(t_stack *ts);
 void	ft_exit(t_stack *ts, char *str, int fd);
 void	ft_free_tab(char **tab);
+
+
+
+
+//int		ft_ra_or_rra(t_stack *ts);
+//int		ft_find_lower(t_stack *ts, int find);
+//int		ft_do_rra(t_stack *ts, int pos);
+//int		ft_do_ra(t_stack *ts, int pos);
+
 
 #endif

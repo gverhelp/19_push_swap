@@ -71,7 +71,7 @@ int		ft_parse(char **stack, t_stack *ts)
 		if (ft_youanumber(stack[a]) == -1 || ft_check_dupli(stack[a], stack) == -1)
 			return (-1);
 		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(stack[a])));
-		ts->len++;
+		ts->lena++;
 		a++;
 	}
 	ft_free_tab(stack);

@@ -18,9 +18,12 @@ void	ft_init_struct(t_stack *ts)
 	ts->bstack = NULL;
 	ts->next = NULL;
 	ts->number = 0;
-	ts->len = 0;
+	ts->lena = 0;
+	ts->lenb = 0;
 	ts->line = NULL;
 	ts->sortedstack = NULL;
+	ts->nbchunks = 0;
+	ts->chunks = NULL;
 }
 
 void	ft_exit(t_stack *ts, char *str, int fd)

@@ -13,8 +13,9 @@
 SRCS =  operations.c \
 		operations_utils.c \
 		do_operations.c \
-		ra_or_rra.c \
+		r_or_rr.c \
 		push_swap_algo.c \
+		algo_big_len.c \
 		manage_stack.c \
 		get_sort_stack.c \
 		parsing.c \

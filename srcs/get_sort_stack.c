@@ -28,10 +28,10 @@ int	ft_get_sort_stack2(t_stack *ts)
 
 	a = 0;
 	b = 0;
-	while (a < ts->len - 1)
+	while (a < ts->lena - 1)
 	{
 		b = a + 1;
-		while (b < ts->len)
+		while (b < ts->lena)
 		{
 			if (ts->sortedstack[a] > ts->sortedstack[b])
 				ft_true_swap(&ts->sortedstack, a, b);
@@ -49,7 +49,7 @@ int	ft_get_sort_stack(t_stack *ts)
 
 	a = 0;
 	stack = ts->astack;
-	if (!(ts->sortedstack = malloc(ts->len * sizeof(int))))
+	if (!(ts->sortedstack = malloc(ts->lena * sizeof(int))))
 		return (-1);
 	while (stack)
 	{

@@ -14,14 +14,24 @@
 
 int	ft_len_is_5(t_stack *ts)
 {
-	int		pos;
-	t_stack *astack;
-	t_stack *bstack;
+	int	a;
+	int	pos;
 
-	astack = ts->astack;
-	bstack = ts->bstack;
-	pos = ft_get_lower_number(ts, ts->astack);
-	ft_ra_or_rra(ts, pos, 1);
+	a = 0;
+	pos = 0;
+	while (a < 2)
+	{
+		pos = ft_get_lower_number(ts->astack);
+		ft_r_or_rr(ts, pos, 1);
+		ft_print_op(ts, "pb");
+		a++;
+	}
+	ft_len_is_3(ts);
+	while (a > 0)
+	{
+		ft_print_op(ts, "pa");
+		a--;
+	}
 	return (0);
 }
 
@@ -73,12 +83,16 @@ int	ft_wich_algo(t_stack *ts)
 {
 	if (!ft_check_order(ts))
 		return (0);
-	if (ts->len == 2)
+	if (ts->lena == 2)
 		ft_len_is_2(ts);
-	if (ts->len == 3)
+	if (ts->lena == 3)
 		ft_len_is_3(ts);
-	if (ts->len == 5)
+	if (ts->lena == 5)
 		ft_len_is_5(ts);
+	if (ts->lena == 100 || ts->lena == 500)
+		ft_len_is_big(ts);
+//	else
+//		ft_len_is_else();
 	return (0);
 }
 

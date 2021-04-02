@@ -38,6 +38,8 @@ int     ft_push(t_stack *ts, int a)
             return (-1);
         ft_push_stack(&ts->astack, ts->bstack->number);
         ft_pop_stack(&ts->bstack);
+        ts->lena++;
+        ts->lenb--;
     }
     if (a == 2)
     {
@@ -45,6 +47,8 @@ int     ft_push(t_stack *ts, int a)
             return (-1);
         ft_push_stack(&ts->bstack, ts->astack->number);
         ft_pop_stack(&ts->astack);
+        ts->lena--;
+        ts->lenb++;
     }
     return (0);
 }
