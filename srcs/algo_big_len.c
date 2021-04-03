@@ -20,16 +20,34 @@ int ft_len_is_500(t_stack *ts)
 
 int ft_len_is_100(t_stack *ts)
 {
-    (void)ts;
+    int count;
+    t_stack *stack;
+
+    count = 0;
+    stack = ts->astack;
+    while (stack)
+    {
+        if (count >= 0 && count <= 19)
+            ft_first_or_second(ts, 0, 19);
+/*        if (count >= 20 && count <= 39)
+            ft_first_or_second(ts, 20, 39);
+        if (count >= 40 && count <= 59)
+            ft_first_or_second(ts, 40, 59);
+        if (count >= 60 && count <= 79)
+            ft_first_or_second(ts, 60, 79);
+        if (count >= 80 && count <= 99)
+            ft_first_or_second(ts, 80, 99); */
+        count++;
+        stack = stack->next;
+    }
     return (0);
 }
 
 int ft_len_is_big(t_stack *ts)
 {
-    if (ts->lena == 100)
+    if (ts->lena == 20)
     {
         ts->nbchunks = 5;
-//        ft_get_my_chunks(ts, 5, 20);
         ft_len_is_100(ts);
     }
     if (ts->lena == 500)

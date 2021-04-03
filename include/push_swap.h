@@ -26,7 +26,8 @@ struct s_stack
 	char	*line;
 	int		*sortedstack;
 	int		nbchunks;
-	int		**chunks;
+	int		holdfirst;
+	int		holdsecond;
 	t_stack	*next;
 	t_stack	*astack;
 	t_stack	*bstack;
@@ -71,11 +72,11 @@ t_stack	*ft_get_before_last_elem(t_stack *stack);
 
 int     ft_check_order(t_stack *ts);
 int 	ft_get_lower_number(t_stack *mystack);
+int 	*ft_get_mystack_in_tab(t_stack *mystack);
 
 ///////////// ra or rra /////////////
 
-int		ft_r_or_rr(t_stack *ts, int a, int wichstack);
-int 	ft_r_or_rr2(t_stack *ts, int pos, int wichstack);
+int		ft_r_or_rr(t_stack *ts, int pos, int wichstack);
 void	ft_do_r(t_stack *ts, int pos, int wichstack);
 void	ft_do_rr(t_stack *ts, int pos, int wichstack);
 
@@ -90,6 +91,12 @@ int		ft_len_is_5(t_stack *ts);
 /////////// Algo big len ////////////
 
 int 	ft_len_is_big(t_stack *ts);
+
+//////////// Get hold //////////////
+
+int 	ft_first_or_second(t_stack *ts, int start, int end);
+int 	ft_get_hold(t_stack *ts, int stacknumber, int start, int end);
+int 	ft_compare_hold(t_stack *ts);
 
 ////////// get sort stack //////////
 

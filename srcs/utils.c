@@ -23,7 +23,8 @@ void	ft_init_struct(t_stack *ts)
 	ts->line = NULL;
 	ts->sortedstack = NULL;
 	ts->nbchunks = 0;
-	ts->chunks = NULL;
+	ts->holdfirst = 0;
+	ts->holdsecond = 0;
 }
 
 void	ft_exit(t_stack *ts, char *str, int fd)

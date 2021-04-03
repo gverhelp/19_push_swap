@@ -89,7 +89,7 @@ int	ft_wich_algo(t_stack *ts)
 		ft_len_is_3(ts);
 	if (ts->lena == 5)
 		ft_len_is_5(ts);
-	if (ts->lena == 100 || ts->lena == 500)
+	if (ts->lena == 20 || ts->lena == 500)
 		ft_len_is_big(ts);
 //	else
 //		ft_len_is_else();
