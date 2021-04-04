@@ -39,51 +39,61 @@ int *ft_get_mystack_in_tab(t_stack *mystack)
     return (newstack);
 }
 
-/*
-int *ft_reverse_list(int *reversestack, int len)
+int ft_get_higher_number(t_stack *mystack)
 {
-    int a;
-    int *reverselist;
+    int higher;
 
-    a = 0;
-    reverselist = NULL;
-    while (len > 0)
-    {
-        reverselist[a] = reversestack[len];
-        a++;
-        len--;
-    }
-    return (reverselist);
-}
-
-int *ft_get_stack_reverse(t_stack *ts, t_stack *mystack)
-{
-    int a;
-    int len;
-    int *reversestack;
-    t_stack *firstelem;
-
-    len = 0;
-    a = 0;
-    firstelem = mystack;
+    higher = mystack->number;
     while (mystack)
     {
-        len++;
+        if (higher < mystack->number)
+            higher = mystack->number;
         mystack = mystack->next;
     }
-    mystack = firstelem;
-    if (!(reversestack = malloc(sizeof(int) * len)))
-        return (-1);
-    while (mystack)
-    {
-        reversestack[a] = mystack->number;
-        mystack = mystack->next;
-        len++;
-    }
-    return (ft_reverse_list(reversestack, len));
+    return (higher);
 }
-*/
+
+int ft_get_pos_higher_number(t_stack *mystack)
+{
+    int     count;
+    int     max;
+    int     pos;
+    t_stack *stack;
+
+    count = 1;
+    pos = 0;
+    max = mystack->number;
+    stack = mystack;
+    while (stack)
+    {
+        if (max < stack->number)
+        {
+            max = stack->number;
+            pos = count;
+        }
+        count++;
+        stack = stack->next;
+    }
+    return (pos);
+}
+
 int ft_get_lower_number(t_stack *mystack)
+{
+    int lower;
+    t_stack *stack;
+
+    lower = mystack->number;
+    stack = mystack;
+    while (stack)
+    {
+        if (lower > stack->number)
+            lower = stack->number;
+        stack = stack->next;
+    }
+    return (lower);
+}
+
+int ft_get_pos_lower_number(t_stack *mystack)
 {
     int     count;
     int     min;

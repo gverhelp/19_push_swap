@@ -54,9 +54,19 @@ void	ft_do_r(t_stack *ts, int pos, int wichstack)
 
 int 	ft_r_or_rr(t_stack *ts, int pos, int wichstack)
 {
-	if (pos > (ts->lena / 2))
-		ft_do_rr(ts, pos, wichstack);
-	else
-		ft_do_r(ts, pos, wichstack);
+	if (wichstack == 1)
+	{
+		if (pos > (ts->lena / 2))
+			ft_do_rr(ts, pos, wichstack);
+		else
+			ft_do_r(ts, pos, wichstack);
+	}
+	if (wichstack == 2)
+	{
+		if (pos > (ts->lenb / 2))
+			ft_do_rr(ts, pos, wichstack);
+		else
+			ft_do_r(ts, pos, wichstack);
+	}
     return (0);
 }

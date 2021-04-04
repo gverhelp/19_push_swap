@@ -72,7 +72,10 @@ t_stack	*ft_get_before_last_elem(t_stack *stack);
 
 int     ft_check_order(t_stack *ts);
 int 	ft_get_lower_number(t_stack *mystack);
+int 	ft_get_pos_lower_number(t_stack *mystack);
 int 	*ft_get_mystack_in_tab(t_stack *mystack);
+int 	ft_get_higher_number(t_stack *mystack);
+int 	ft_get_pos_higher_number(t_stack *mystack);
 
 ///////////// ra or rra /////////////
 
@@ -109,14 +112,5 @@ void	ft_true_swap(int **tab, int a, int b);
 void	ft_init_struct(t_stack *ts);
 void	ft_exit(t_stack *ts, char *str, int fd);
 void	ft_free_tab(char **tab);
-
-
-
-
-//int		ft_ra_or_rra(t_stack *ts);
-//int		ft_find_lower(t_stack *ts, int find);
-//int		ft_do_rra(t_stack *ts, int pos);
-//int		ft_do_ra(t_stack *ts, int pos);
-
 
 #endif

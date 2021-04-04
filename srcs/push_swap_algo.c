@@ -21,7 +21,7 @@ int	ft_len_is_5(t_stack *ts)
 	pos = 0;
 	while (a < 2)
 	{
-		pos = ft_get_lower_number(ts->astack);
+		pos = ft_get_pos_lower_number(ts->astack);
 		ft_r_or_rr(ts, pos, 1);
 		ft_print_op(ts, "pb");
 		a++;
@@ -101,12 +101,13 @@ int ft_start_algo(t_stack *ts)
 //	int a;
     if (ft_get_sort_stack(ts) == -1)
 		return (-1);
-//	a = 0;
-//	while (a < ts->lena)
-//	{
-//		printf("ts->sortedstack[a] %d\n", ts->sortedstack[a]);
-//		a++;
-//	}
+/*	a = 0;
+	while (a < ts->lena)
+	{
+		printf("ts->sortedstack[a] %d\n", ts->sortedstack[a]);
+		a++;
+	}
+*/
 	ft_wich_algo(ts);
     return (0);
 }

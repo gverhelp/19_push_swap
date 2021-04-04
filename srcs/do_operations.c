@@ -82,10 +82,22 @@ void    ft_print_op(t_stack *ts, char *str)
         if (ft_rotate(ts, 1) == -1)
             ft_exit(ts, "Error", 2);
     }
+	if (!ft_strcmp(str, "rb"))
+    {
+		ft_putendl_fd("rb", 1);
+        if (ft_rotate(ts, 2) == -1)
+            ft_exit(ts, "Error", 2);
+    }
 	if (!ft_strcmp(str, "rra"))
     {
 		ft_putendl_fd("rra", 1);
         if (ft_rev_rotate(ts, 1) == -1)
+            ft_exit(ts, "Error", 2);
+    }
+	if (!ft_strcmp(str, "rrb"))
+    {
+		ft_putendl_fd("rrb", 1);
+        if (ft_rev_rotate(ts, 2) == -1)
             ft_exit(ts, "Error", 2);
     }
 }

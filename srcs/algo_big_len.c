@@ -25,6 +25,13 @@ int ft_len_is_100(t_stack *ts)
     ft_first_or_second(ts, 40, 59);
     ft_first_or_second(ts, 60, 79);
     ft_first_or_second(ts, 80, 99);
+/*    ft_r_or_rr(ts, ft_get_pos_higher_number(ts->bstack), 2);
+    printf("pos higher %d\n", ft_get_pos_higher_number(ts->bstack));
+    printf("higher %d\n", ft_get_higher_number(ts->bstack));
+    printf("ts->lenb %d\n", ts->lenb);
+    while (ts->lenb)
+        ft_print_op(ts, "pa");
+*/
     return (0);
 }
 
