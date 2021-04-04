@@ -89,7 +89,7 @@ int	ft_wich_algo(t_stack *ts)
 		ft_len_is_3(ts);
 	if (ts->lena == 5)
 		ft_len_is_5(ts);
-	if (ts->lena == 20 || ts->lena == 500)
+	if (ts->lena == 100 || ts->lena == 500)
 		ft_len_is_big(ts);
 //	else
 //		ft_len_is_else();
@@ -98,8 +98,15 @@ int	ft_wich_algo(t_stack *ts)
 
 int ft_start_algo(t_stack *ts)
 {
+//	int a;
     if (ft_get_sort_stack(ts) == -1)
 		return (-1);
+//	a = 0;
+//	while (a < ts->lena)
+//	{
+//		printf("ts->sortedstack[a] %d\n", ts->sortedstack[a]);
+//		a++;
+//	}
 	ft_wich_algo(ts);
     return (0);
 }

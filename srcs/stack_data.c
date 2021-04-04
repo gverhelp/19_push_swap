@@ -26,12 +26,13 @@ int *ft_get_mystack_in_tab(t_stack *mystack)
         mystack = mystack->next;
     }
     mystack = firstelem;
-    if (!(newstack = malloc(sizeof(int) * len)))
+    if (!(newstack = malloc(len * sizeof(int))))
         return (NULL);
     len = 0;
     while (mystack)
     {
         newstack[len] = mystack->number;
+//        printf("stacknumber : %d\n", newstack[len]);
         mystack = mystack->next;
         len++;
     }
