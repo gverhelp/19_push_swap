@@ -22,7 +22,6 @@ void	ft_init_struct(t_stack *ts)
 	ts->lenb = 0;
 	ts->line = NULL;
 	ts->sortedstack = NULL;
-	ts->nbchunks = 0;
 	ts->holdfirst = 0;
 	ts->holdsecond = 0;
 }

@@ -93,8 +93,8 @@ int ft_start_algo(t_stack *ts)
 		ft_len_is_5(ts);
 	if (ts->lena == 100 || ts->lena == 500)
 		ft_len_is_big(ts);
-//	else
-//		ft_len_is_else();	
+	else
+		ft_len_is_else(ts);	
     return (0);
 }
 

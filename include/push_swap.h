@@ -25,7 +25,6 @@ struct s_stack
 	int		lenb;
 	char	*line;
 	int		*sortedstack;
-	int		nbchunks;
 	int		holdfirst;
 	int		holdsecond;
 	t_stack	*next;
@@ -95,6 +94,7 @@ int		ft_len_is_5(t_stack *ts);
 int 	ft_len_is_big(t_stack *ts);
 int 	ft_len_is_100(t_stack *ts);
 int 	ft_len_is_500(t_stack *ts);
+int 	ft_len_is_else(t_stack *ts);
 
 //////////// Get hold //////////////
 

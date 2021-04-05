@@ -48,6 +48,18 @@ int ft_len_is_100(t_stack *ts)
     return (0);
 }
 
+int ft_len_is_else(t_stack *ts)
+{
+    while (ts->lena)
+    {
+        ft_r_or_rr(ts, ft_get_pos_lower_number(ts->astack), 1);
+        ft_print_op(ts, "pb");
+    }
+    while (ts->lenb)
+        ft_print_op(ts, "pa");
+    return (0);
+}
+
 int ft_len_is_big(t_stack *ts)
 {
     if (ts->lena == 100)
