@@ -25,7 +25,7 @@ int     main(int argc, char **argv)
 		stack = ft_split(argv[1], ' ');
 	if (ft_parse(stack, &ts) == -1)
 		ft_exit(&ts, "Error", 2);
-	while (get_next_line(0, &ts.line) > 0)
+	while ((get_next_line(0, &ts.line)) > 0)
 	{
 		if (ft_what_operation(&ts) == -1)
 			ft_exit(&ts, "Error", 2);

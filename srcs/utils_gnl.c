@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   utils_gnl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/29 13:03:44 by gverhelp          #+#    #+#             */
-/*   Updated: 2020/03/05 14:09:59 by gverhelp         ###   ########.fr       */
+/*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
+/*   Updated: 2021/03/08 14:29:57 by gverhelp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../include/push_swap.h"
 
 static int	ft_free(char **rest, int nb)
 {

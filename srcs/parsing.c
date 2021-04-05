@@ -75,12 +75,6 @@ int		ft_parse(char **stack, t_stack *ts)
 		a++;
 	}
 	ft_free_tab(stack);
-
-
-//	ft_push_stack(&ts->bstack, 20);    //// to do some tests
-//	ft_push_stack(&ts->bstack, 7);
-
-
 /*///////////////////////////////////     Afficher le stack a
 	ts->firsta = ts->astack;
 	while (ts->astack)

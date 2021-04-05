@@ -12,32 +12,6 @@
 
 #include "../include/push_swap.h"
 
-int *ft_get_mystack_in_tab(t_stack *mystack)
-{
-    int len;
-    int *newstack;
-    t_stack *firstelem;
-    
-    len = 0;
-    firstelem = mystack;
-    while (mystack)
-    {
-        len++;
-        mystack = mystack->next;
-    }
-    mystack = firstelem;
-    if (!(newstack = malloc(len * sizeof(int))))
-        return (NULL);
-    len = 0;
-    while (mystack)
-    {
-        newstack[len] = mystack->number;
-        mystack = mystack->next;
-        len++;
-    }
-    return (newstack);
-}
-
 int ft_get_higher_number(t_stack *mystack)
 {
     int higher;

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   libft_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 17:35:04 by gverhelp          #+#    #+#             */
-/*   Updated: 2019/10/29 16:34:09 by gverhelp         ###   ########.fr       */
+/*   Created: 2021/03/08 13:58:00 by gverhelp          #+#    #+#             */
+/*   Updated: 2021/03/08 18:00:48 by gverhelp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -35,4 +35,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	src[a] = '\0';
 	return (src);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }

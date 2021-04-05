@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   stack_data2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,15 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int *ft_get_mystack_in_tab(t_stack *mystack)
 {
-	size_t	a;
-
-	a = 0;
-	while (s1[a] != '\0' && s2[a] != '\0' &&
-			(unsigned char)s1[a] == (unsigned char)s2[a])
-		a++;
-	return ((unsigned char)s1[a] - (unsigned char)s2[a]);
+    int len;
+    int *newstack;
+    t_stack *firstelem;
+    
+    len = 0;
+    firstelem = mystack;
+    while (mystack)
+    {
+        len++;
+        mystack = mystack->next;
+    }
+    mystack = firstelem;
+    if (!(newstack = malloc(len * sizeof(int))))
+        return (NULL);
+    len = 0;
+    while (mystack)
+    {
+        newstack[len] = mystack->number;
+        mystack = mystack->next;
+        len++;
+    }
+    return (newstack);
 }

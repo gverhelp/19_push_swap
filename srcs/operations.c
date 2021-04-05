@@ -71,17 +71,7 @@ int     ft_rotate(t_stack *ts, int a)
         bot->next = top;
     }
     if (a == 2)
-    {
-        if (!ts->bstack)
-            return (-1);
-        if (!ts->bstack->next)
-            return (0);
-        top = ts->bstack;
-        bot = ft_get_last_elem(ts->bstack);
-        ts->bstack = top->next;
-        top->next = NULL;
-        bot->next = top;
-    }
+        return (ft_rotate2(ts));
     return (0);
 }
 
@@ -103,16 +93,6 @@ int     ft_rev_rotate(t_stack *ts, int a)
         ts->astack = bot;
     }
     if (a == 2)
-    {
-        if (!ts->bstack)
-            return (-1);
-        if (!ts->bstack->next)
-            return (0);
-        bot = ft_get_last_elem(ts->bstack);
-        before_bot = ft_get_before_last_elem(ts->bstack);
-        before_bot->next = NULL;
-        bot->next = ts->bstack;
-        ts->bstack = bot;
-    }
+        return (ft_rev_rotate2(ts));
     return (0);
 }
