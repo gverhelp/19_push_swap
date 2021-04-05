@@ -79,8 +79,10 @@ int	ft_len_is_2(t_stack *ts)
 	return (0);
 }
 
-int	ft_wich_algo(t_stack *ts)
+int ft_start_algo(t_stack *ts)
 {
+    if (ft_get_sort_stack(ts) == -1)
+		return (-1);
 	if (!ft_check_order(ts))
 		return (0);
 	if (ts->lena == 2)
@@ -92,34 +94,11 @@ int	ft_wich_algo(t_stack *ts)
 	if (ts->lena == 100 || ts->lena == 500)
 		ft_len_is_big(ts);
 //	else
-//		ft_len_is_else();
-	return (0);
-}
-
-int ft_start_algo(t_stack *ts)
-{
-//	int a;
-    if (ft_get_sort_stack(ts) == -1)
-		return (-1);
-/*	a = 0;
-	while (a < ts->lena)
-	{
-		printf("ts->sortedstack[a] %d\n", ts->sortedstack[a]);
-		a++;
-	}
-*/
-	ft_wich_algo(ts);
+//		ft_len_is_else();	
     return (0);
 }
 
 
-
-
-/*	ft_print_op("rra");
-	ft_print_op("pb");
-	ft_print_op("sa");
-	ft_print_op("rra");
-	ft_print_op("pa"); */
 
 
 /* 

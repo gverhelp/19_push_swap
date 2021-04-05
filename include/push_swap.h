@@ -86,7 +86,6 @@ void	ft_do_rr(t_stack *ts, int pos, int wichstack);
 ///////// Push_swap_algo ////////////
 
 int 	ft_start_algo(t_stack *ts);
-int		ft_wich_algo(t_stack *ts);
 int		ft_len_is_2(t_stack *ts);
 int		ft_len_is_3(t_stack *ts);
 int		ft_len_is_5(t_stack *ts);
@@ -94,11 +93,14 @@ int		ft_len_is_5(t_stack *ts);
 /////////// Algo big len ////////////
 
 int 	ft_len_is_big(t_stack *ts);
+int 	ft_len_is_100(t_stack *ts);
+int 	ft_len_is_500(t_stack *ts);
 
 //////////// Get hold //////////////
 
 int 	ft_first_or_second(t_stack *ts, int start, int end);
-int 	ft_get_hold(t_stack *ts, int stacknumber, int start, int end);
+int 	ft_get_hold_first(t_stack *ts, int start, int end);
+int 	ft_get_hold_second(t_stack *ts, int start, int end);
 int 	ft_compare_hold(t_stack *ts);
 
 ////////// get sort stack //////////

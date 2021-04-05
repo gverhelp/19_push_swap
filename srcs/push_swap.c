@@ -27,8 +27,6 @@ int		main(int argc, char **argv)
 		ft_exit(&ts, "Error", 2);
 	if (ft_start_algo(&ts) == -1)
 		ft_exit(&ts, "Error", 2);
-
-
 /*////////////////////////////////////////////////// Afficher stack a
     ts.firsta = ts.astack;
 	while (ts.astack)
@@ -46,7 +44,6 @@ int		main(int argc, char **argv)
 	}
 	ts.bstack = ts.firstb;
 */////////////////////////////////////////////////
-
 	free(ts.sortedstack);
 	ft_delete_stack(&ts.astack);
 	ft_delete_stack(&ts.bstack);

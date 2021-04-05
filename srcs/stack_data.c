@@ -32,7 +32,6 @@ int *ft_get_mystack_in_tab(t_stack *mystack)
     while (mystack)
     {
         newstack[len] = mystack->number;
-//        printf("stacknumber : %d\n", newstack[len]);
         mystack = mystack->next;
         len++;
     }
