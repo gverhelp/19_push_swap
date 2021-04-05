@@ -36,22 +36,25 @@ int ft_between_numbers(t_stack *ts)
 
 int ft_check_stackb(t_stack *ts)
 {
-    if (!ts->bstack)
+    (void)ts;
+/*    if (!ts->bstack)
         ft_print_op(ts, "pb");
-    if (ts->astack->number < ft_get_lower_number(ts->bstack))
+    else if (ts->astack->number < ft_get_lower_number(ts->bstack))
     {
 //        printf("OK1\n");
         ft_r_or_rr(ts, ft_get_pos_lower_number(ts->bstack), 2);
         ft_print_op(ts, "pb");
     }
-    if (ts->astack->number > ft_get_higher_number(ts->bstack))
+    else if (ts->astack->number > ft_get_higher_number(ts->bstack))
     {
 //        printf("OK2\n");
-        ft_r_or_rr(ts, ft_get_pos_higher_number(ts->bstack), 2);
+        ft_r_or_rr(ts, ft_get_pos_lower_number(ts->bstack), 2);
         ft_print_op(ts, "pb");
     }
+*/
 //    else
 //        ft_between_numbers(ts);
+    ft_print_op(ts, "pb");
     return (0);
 }
 

@@ -14,7 +14,22 @@
 
 int ft_len_is_500(t_stack *ts)
 {
-    (void)ts;
+    ft_first_or_second(ts, 0, 44);
+    ft_first_or_second(ts, 45, 89);
+    ft_first_or_second(ts, 90, 134);
+    ft_first_or_second(ts, 135, 179);
+    ft_first_or_second(ts, 180, 224);
+    ft_first_or_second(ts, 225, 269);
+    ft_first_or_second(ts, 270, 314);
+    ft_first_or_second(ts, 315, 359);
+    ft_first_or_second(ts, 360, 404);
+    ft_first_or_second(ts, 405, 449);
+    ft_first_or_second(ts, 450, 499);
+    while (ts->lenb)
+    {
+        ft_r_or_rr(ts, ft_get_pos_higher_number(ts->bstack), 2);
+        ft_print_op(ts, "pa");
+    }
     return (0);
 }
 
@@ -25,13 +40,11 @@ int ft_len_is_100(t_stack *ts)
     ft_first_or_second(ts, 40, 59);
     ft_first_or_second(ts, 60, 79);
     ft_first_or_second(ts, 80, 99);
-/*    ft_r_or_rr(ts, ft_get_pos_higher_number(ts->bstack), 2);
-    printf("pos higher %d\n", ft_get_pos_higher_number(ts->bstack));
-    printf("higher %d\n", ft_get_higher_number(ts->bstack));
-    printf("ts->lenb %d\n", ts->lenb);
     while (ts->lenb)
+    {
+        ft_r_or_rr(ts, ft_get_pos_higher_number(ts->bstack), 2);
         ft_print_op(ts, "pa");
-*/
+    }
     return (0);
 }
 

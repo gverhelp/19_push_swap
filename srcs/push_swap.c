@@ -29,7 +29,7 @@ int		main(int argc, char **argv)
 		ft_exit(&ts, "Error", 2);
 
 
-////////////////////////////////////////////////// Afficher stack a
+/*////////////////////////////////////////////////// Afficher stack a
     ts.firsta = ts.astack;
 	while (ts.astack)
 	{
@@ -45,7 +45,7 @@ int		main(int argc, char **argv)
 		ts.bstack = ts.bstack->next;
 	}
 	ts.bstack = ts.firstb;
-/////////////////////////////////////////////////
+*/////////////////////////////////////////////////
 
 	free(ts.sortedstack);
 	ft_delete_stack(&ts.astack);
