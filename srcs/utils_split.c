@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_data2.c                                      :+:      :+:    :+:   */
+/*   utils_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static int		ft_malloc_s(char const *s, char c)
+static int	ft_malloc_s(char const *s, char c)
 {
 	int	a;
 	int	counter;
@@ -33,7 +33,7 @@ static int		ft_malloc_s(char const *s, char c)
 	return (counter);
 }
 
-static void		ft_free(char **tab)
+static void	ft_free(char **tab)
 {
 	int	a;
 
@@ -46,7 +46,7 @@ static void		ft_free(char **tab)
 	free(tab);
 }
 
-static char		*ft_write(const char *s, char c, char **tab)
+static char	*ft_write(const char *s, char c, char **tab)
 {
 	size_t	a;
 	char	*dest;
@@ -60,7 +60,7 @@ static char		*ft_write(const char *s, char c, char **tab)
 	return (dest);
 }
 
-char			**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	int		a;
 	int		b;
@@ -70,7 +70,8 @@ char			**ft_split(char const *s, char c)
 	b = 0;
 	if (s == NULL)
 		return (NULL);
-	if (!(tab = malloc((ft_malloc_s(s, c) + 1) * sizeof(char*))))
+	tab = malloc((ft_malloc_s(s, c) + 1) * sizeof(char*));
+	if (!tab)
 		return (NULL);
 	while (s[a] != '\0')
 	{

@@ -3,86 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   utils_gnl2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 14:29:57 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:12:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-size_t	ft_strlen_gnl(const char *s)
+char	*ft_strjoin(char *s1, char const *s2)
 {
-	size_t	a;
-
-	a = 0;
-	while (s[a] != '\0')
-		a++;
-	return (a);
-}
-
-char	*ft_strjoin_gnl(char const *s1, char const *s2)
-{
-	int		size;
-	int		a;
+	char	*string;
+	int		len;
+	int		i;
 	int		b;
-	char	*str;
 
-	a = 0;
+	i = 0;
 	b = 0;
-	if (s1 == NULL || s2 == NULL)
+	if (!s1)
 		return (NULL);
-	size = ft_strlen_gnl((char*)s1) + ft_strlen_gnl((char*)s2);
-	str = malloc((size + 1) * sizeof(*str));
-	if (str == NULL)
+	if (!s2 && s1)
+		return ((char *)s1);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	string = malloc(len + 1 * sizeof(string));
+	if (string == NULL)
 		return (NULL);
-	while (s1[a] != '\0')
+	while (s1[i] != '\0')
 	{
-		str[a] = s1[a];
-		a++;
+		string[i] = s1[i];
+		i++;
 	}
 	while (s2[b] != '\0')
-	{
-		str[a + b] = s2[b];
-		b++;
-	}
-	str[a + b] = '\0';
-	return (str);
+		string[i++] = s2[b++];
+	string[i] = '\0';
+	return (string);
 }
 
-char	*ft_strdup_gnl(const char *s1)
+char	*ft_strdup(const char *s)
 {
-	int		a;
-	char	*s;
+	char	*dest;
+	int		len;
+	int		i;
 
-	a = 0;
-	if (s1 == NULL)
-		return (ft_strdup_gnl(""));
-	s = malloc((ft_strlen(s1) + 1) * sizeof(*s));
-	if (s == NULL)
+	len = 0;
+	i = 0;
+	while (s[len] != '\0')
+		len++;
+	dest = malloc(sizeof(*dest) * len + 1);
+	if (dest == NULL)
 		return (NULL);
-	while (s1[a] != '\0')
+	while (i < len)
 	{
-		s[a] = s1[a];
-		a++;
+		dest[i] = s[i];
+		i++;
 	}
-	s[a] = '\0';
-	return (s);
+	dest[i] = '\0';
+	return (dest);
 }
 
-char	*ft_strchr_gnl(const char *s, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	int	a;
+	int		i;
+	char	*new_str;
 
-	a = 0;
-	while (s[a] != '\0')
+	i = 0;
+	new_str = (char *)str;
+	while (str[i] != c)
 	{
-		if (s[a] == (unsigned char)c)
-			return ((char*)&s[a + 1]);
-		a++;
+		if (str[i] == '\0')
+			return (NULL);
+		i++;
+		new_str++;
 	}
-	if (c == 0)
-		return ((char*)&s[a]);
-	return (NULL);
+	return (new_str);
 }

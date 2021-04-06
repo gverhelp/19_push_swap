@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-int		ft_check_dupli(char *str, char **set)
+int	ft_check_dupli(char *str, char **set)
 {
-	int a;
-	int count;
+	int	a;
+	int	count;
 
 	a = 0;
 	count = 0;
@@ -30,7 +30,7 @@ int		ft_check_dupli(char *str, char **set)
 	return (0);
 }
 
-int		ft_youanumber(char *str)
+int	ft_youanumber(char *str)
 {
 	int	a;
 	int	len;
@@ -57,10 +57,10 @@ int		ft_youanumber(char *str)
 	return (0);
 }
 
-int		ft_parse(char **stack, t_stack *ts)
+int	ft_parse(char **stack, t_stack *ts)
 {
-	int		a;
-	int		len;
+	int	a;
+	int	len;
 
 	a = 0;
 	len = 0;
@@ -68,29 +68,13 @@ int		ft_parse(char **stack, t_stack *ts)
 		len++;
 	while (a < len)
 	{
-		if (ft_youanumber(stack[a]) == -1 || ft_check_dupli(stack[a], stack) == -1)
+		if (ft_youanumber(stack[a]) == -1 ||
+			ft_check_dupli(stack[a], stack) == -1)
 			return (-1);
 		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(stack[a])));
 		ts->lena++;
 		a++;
 	}
 	ft_free_tab(stack);
-/*///////////////////////////////////     Afficher le stack a
-	ts->firsta = ts->astack;
-	while (ts->astack)
-	{
-		printf("%d\n", ts->astack->number);
-		ts->astack = ts->astack->next;
-	}
-	ts->astack = ts->firsta;
-////////////////////////////////////   Afficher le stack b
-	ts->firstb = ts->bstack;
-	while (ts->bstack)
-	{
-		printf("%d\n", ts->bstack->number);
-		ts->bstack = ts->bstack->next;
-	}
-	ts->bstack = ts->firstb;
-*///////////////////////////////////
 	return (0);
 }

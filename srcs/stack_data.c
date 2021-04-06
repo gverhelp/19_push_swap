@@ -12,96 +12,96 @@
 
 #include "../include/push_swap.h"
 
-int ft_get_higher_number(t_stack *mystack)
+int	ft_get_higher_number(t_stack *mystack)
 {
-    int higher;
+	int higher;
 
-    higher = mystack->number;
-    while (mystack)
-    {
-        if (higher < mystack->number)
-            higher = mystack->number;
-        mystack = mystack->next;
-    }
-    return (higher);
+	higher = mystack->number;
+	while (mystack)
+	{
+		if (higher < mystack->number)
+			higher = mystack->number;
+		mystack = mystack->next;
+	}
+	return (higher);
 }
 
-int ft_get_pos_higher_number(t_stack *mystack)
+int	ft_get_pos_higher_number(t_stack *mystack)
 {
-    int     count;
-    int     max;
-    int     pos;
-    t_stack *stack;
+	int		count;
+	int		max;
+	int		pos;
+	t_stack	*stack;
 
-    count = 1;
-    pos = 0;
-    max = mystack->number;
-    stack = mystack;
-    while (stack)
-    {
-        if (max < stack->number)
-        {
-            max = stack->number;
-            pos = count;
-        }
-        count++;
-        stack = stack->next;
-    }
-    return (pos);
+	count = 1;
+	pos = 0;
+	max = mystack->number;
+	stack = mystack;
+	while (stack)
+	{
+		if (max < stack->number)
+		{
+			max = stack->number;
+			pos = count;
+		}
+		count++;
+		stack = stack->next;
+	}
+	return (pos);
 }
 
-int ft_get_lower_number(t_stack *mystack)
+int	ft_get_lower_number(t_stack *mystack)
 {
-    int lower;
-    t_stack *stack;
+	int		lower;
+	t_stack	*stack;
 
-    lower = mystack->number;
-    stack = mystack;
-    while (stack)
-    {
-        if (lower > stack->number)
-            lower = stack->number;
-        stack = stack->next;
-    }
-    return (lower);
+	lower = mystack->number;
+	stack = mystack;
+	while (stack)
+	{
+		if (lower > stack->number)
+			lower = stack->number;
+		stack = stack->next;
+	}
+	return (lower);
 }
 
-int ft_get_pos_lower_number(t_stack *mystack)
+int	ft_get_pos_lower_number(t_stack *mystack)
 {
-    int     count;
-    int     min;
-    int     pos;
-    t_stack *stack;
+	int		count;
+	int		min;
+	int		pos;
+	t_stack	*stack;
 
-    count = 1;
-    pos = 0;
-    min = mystack->number;
-    stack = mystack;
-    while (stack)
-    {
-        if (min > stack->number)
-        {
-            min = stack->number;
-            pos = count;
-        }
-        count++;
-        stack = stack->next;
-    }
-    return (pos);
+	count = 1;
+	pos = 0;
+	min = mystack->number;
+	stack = mystack;
+	while (stack)
+	{
+		if (min > stack->number)
+		{
+			min = stack->number;
+			pos = count;
+		}
+		count++;
+		stack = stack->next;
+	}
+	return (pos);
 }
 
-int     ft_check_order(t_stack *ts)
+int	ft_check_order(t_stack *ts)
 {
-    t_stack *stack;
+	t_stack *stack;
 
-    stack = ts->astack;
-    if (ts->bstack)
-        return (-1);
-    while (stack && stack->next)
-    {
-        if (stack->number > stack->next->number)
-            return (-1);
-        stack = stack->next;
-    }
-    return (0);
+	stack = ts->astack;
+	if (ts->bstack)
+		return (-1);
+	while (stack && stack->next)
+	{
+		if (stack->number > stack->next->number)
+			return (-1);
+		stack = stack->next;
+	}
+	return (0);
 }

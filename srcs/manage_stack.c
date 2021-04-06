@@ -45,10 +45,10 @@ int		ft_delete_stack(t_stack **stack)
 
 	tmp = *stack;
 	if (!*stack)
-        return (-1);
+		return (-1);
 	else
 	{
-		while (*stack) 
+		while (*stack)
 		{
 			tmp = *stack;
 			*stack = (*stack)->next;

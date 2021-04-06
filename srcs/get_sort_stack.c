@@ -14,14 +14,14 @@
 
 void	ft_true_swap(int **tab, int a, int b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = (*tab)[a];
 	(*tab)[a] = (*tab)[b];
 	(*tab)[b] = tmp;
 }
 
-int	ft_get_sort_stack2(t_stack *ts)
+int		ft_get_sort_stack2(t_stack *ts)
 {
 	int a;
 	int b;
@@ -42,14 +42,15 @@ int	ft_get_sort_stack2(t_stack *ts)
 	return (0);
 }
 
-int	ft_get_sort_stack(t_stack *ts)
+int		ft_get_sort_stack(t_stack *ts)
 {
 	int		a;
 	t_stack *stack;
 
 	a = 0;
 	stack = ts->astack;
-	if (!(ts->sortedstack = malloc(ts->lena * sizeof(int))))
+	ts->sortedstack = malloc(ts->lena * sizeof(int));
+	if (!ts->sortedstack)
 		return (-1);
 	while (stack)
 	{

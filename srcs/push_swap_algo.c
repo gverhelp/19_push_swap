@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int	ft_len_is_5(t_stack *ts)
+int		ft_len_is_5(t_stack *ts)
 {
 	int	a;
 	int	pos;
@@ -55,7 +55,7 @@ void	ft_len_is_3_p2(t_stack *ts)
 
 void	ft_len_is_3(t_stack *ts)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = ts->astack;
 	if (stack->number > stack->next->number &&
@@ -76,9 +76,9 @@ void	ft_len_is_3(t_stack *ts)
 	ft_len_is_3_p2(ts);
 }
 
-int	ft_len_is_2(t_stack *ts)
+int		ft_len_is_2(t_stack *ts)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = ts->astack;
 	if (stack->number > stack->next->number)
@@ -86,9 +86,9 @@ int	ft_len_is_2(t_stack *ts)
 	return (0);
 }
 
-int ft_start_algo(t_stack *ts)
+int		ft_start_algo(t_stack *ts)
 {
-    if (ft_get_sort_stack(ts) == -1)
+	if (ft_get_sort_stack(ts) == -1)
 		return (-1);
 	if (!ft_check_order(ts))
 		return (0);
@@ -102,5 +102,5 @@ int ft_start_algo(t_stack *ts)
 		ft_len_is_big(ts);
 	else
 		ft_len_is_else(ts);
-    return (0);
+	return (0);
 }

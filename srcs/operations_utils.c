@@ -23,16 +23,16 @@ int		ft_push_stack(t_stack **stack, int newnumber)
 	return (0);
 }
 
-int     ft_pop_stack(t_stack **stack)
+int		ft_pop_stack(t_stack **stack)
 {
-    t_stack *del;
+	t_stack *del;
 
-    if (!*stack)
-        return (-1);
-    del = *stack;
-    *stack = (*stack)->next;
-    free(del);
-    return (0);
+	if (!*stack)
+		return (-1);
+	del = *stack;
+	*stack = (*stack)->next;
+	free(del);
+	return (0);
 }
 
 t_stack	*ft_get_last_elem(t_stack *stack)

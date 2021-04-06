@@ -3,91 +3,115 @@
 /*                                                        :::      ::::::::   */
 /*   utils_gnl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 14:29:57 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:12:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	ft_free(char **rest, int nb)
+static void	write_to_line(char *stat_str, char **line, int char_pos)
 {
-	if (*rest == NULL)
+	char	*temp;
+
+	temp = ft_strdup(stat_str);
+	temp[char_pos] = '\0';
+	if (temp[0] == '\0')
 	{
-		free(*rest);
-		*rest = NULL;
+		*line = ft_strdup("");
 	}
-	return (nb);
+	else
+		*line = ft_strdup(temp);
+	free(temp);
 }
 
-char		*ft_strndup(const char *s)
+static int	find_break_or_null(char *stat_str, t_struct *vars)
 {
-	int		a;
-	int		len;
-	char	*str;
+	int	i;
 
-	len = 0;
-	a = 0;
-	while (s[len] != '\n' && s[len] != '\0')
-		len++;
-	str = malloc((len + 1) * sizeof(*str));
-	if (str == NULL)
+	i = 0;
+	if (stat_str[0] == '\0')
+	{
+		vars->return_number = 0;
+		return (0);
+	}
+	while (stat_str[i] != '\0')
+	{
+		if (stat_str[i] == '\n')
+		{
+			vars->return_number = 1;
+			break ;
+		}
+		i++;
+		vars->return_number = 0;
+	}
+	return (i);
+}
+
+static char	*arrangements(char *stat_str, t_struct *vars, char **line)
+{
+	char	*temp;
+	int		i;
+	int		char_pos;
+
+	i = 0;
+	char_pos = find_break_or_null(stat_str, vars);
+	write_to_line(stat_str, line, char_pos);
+	if (stat_str[char_pos] == '\0' || line == NULL)
+	{
+		free(stat_str);
 		return (NULL);
-	while (s[a] != '\n' && s[a] != '\0')
-	{
-		str[a] = s[a];
-		a++;
 	}
-	str[a] = '\0';
-	return (str);
+	char_pos++;
+	temp = malloc(sizeof(char) * ft_strlen(stat_str) + 1);
+	if (temp == NULL)
+		return (NULL);
+	while (stat_str[char_pos] != '\0')
+		temp[i++] = stat_str[char_pos++];
+	temp[i] = '\0';
+	free(stat_str);
+	return (temp);
 }
 
-int			ft_read(int fd, char **line, char *rest)
+static char	*add_to_final(char *stat_str, t_struct *vars)
 {
-	int		ret;
-	char	buf[BUFFER_SIZE + 1];
-	char	*tmp;
+	char	*temp;
 
-	ret = 1;
-	if (rest != NULL)
-		if ((*line = ft_strdup_gnl(rest)) == NULL)
-			return (-1);
-	if (rest == NULL)
-		if ((*line = ft_strdup_gnl("")) == NULL)
-			return (-1);
-	while ((ft_strchr_gnl(*line, '\n') == NULL) &&
-			(ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	vars->buffer[vars->ret] = '\0';
+	if (stat_str == NULL)
 	{
-		tmp = *line;
-		buf[ret] = '\0';
-		if ((*line = ft_strjoin_gnl(*line, buf)) == NULL)
-			return (-1);
-		free(tmp);
+		stat_str = ft_strdup(vars->buffer);
+		return (stat_str);
 	}
-	return (ret);
+	else
+	{
+		temp = ft_strjoin(stat_str, vars->buffer);
+		free(stat_str);
+		return (temp);
+	}
 }
 
 int			get_next_line(int fd, char **line)
 {
-	int			ret;
-	static char	*rest[FOPEN_MAX];
-	char		*tmp;
+	static char		*stat_str[ARRAY_MAX_SIZE];
+	t_struct		vars;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || line == NULL)
+	if (fd < 0 || fd == 1 || fd == 2 || line == NULL
+		|| BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (-1);
-	if ((ret = ft_read(fd, line, rest[fd])) == -1)
-		return (ft_free(&rest[fd], -1));
-	if (rest[fd] != NULL)
-		free(rest[fd]);
-	if ((rest[fd] = ft_strdup_gnl(ft_strchr_gnl(*line, '\n'))) == NULL)
-		return (ft_free(&rest[fd], -1));
-	if (ft_strchr_gnl(*line, '\n') == NULL)
-		return (ft_free(&rest[fd], 0));
-	tmp = *line;
-	if ((*line = ft_strndup(*line)) == NULL)
-		return (ft_free(&rest[fd], -1));
-	free(tmp);
-	return (1);
+	vars.buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (vars.buffer == NULL)
+		return (-1);
+	vars.ret = read(fd, vars.buffer, BUFFER_SIZE);
+	stat_str[fd] = add_to_final(stat_str[fd], &vars);
+	while (vars.ret > 0 && !ft_strchr(vars.buffer, '\n'))
+	{
+		vars.ret = read(fd, vars.buffer, BUFFER_SIZE);
+		stat_str[fd] = add_to_final(stat_str[fd], &vars);
+	}
+	stat_str[fd] = arrangements(stat_str[fd], &vars, line);
+	free(vars.buffer);
+	return (vars.return_number);
 }

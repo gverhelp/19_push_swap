@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_or_rr.c                                        :+:      :+:    :+:   */
+/*   r_or_rr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -52,7 +52,7 @@ void	ft_do_r(t_stack *ts, int pos, int wichstack)
 	}
 }
 
-int 	ft_r_or_rr(t_stack *ts, int pos, int wichstack)
+int		ft_r_or_rr(t_stack *ts, int pos, int wichstack)
 {
 	if (wichstack == 1)
 	{
@@ -68,5 +68,5 @@ int 	ft_r_or_rr(t_stack *ts, int pos, int wichstack)
 		else
 			ft_do_r(ts, pos, wichstack);
 	}
-    return (0);
+	return (0);
 }

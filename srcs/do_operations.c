@@ -59,50 +59,50 @@ int		ft_what_operation(t_stack *ts)
 void	ft_print_op2(t_stack *ts, char *str)
 {
 	if (!ft_strcmp(str, "rb"))
-    {
+	{
 		ft_putendl_fd("rb", 1);
-        if (ft_rotate(ts, 2) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_rotate(ts, 2) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	if (!ft_strcmp(str, "rra"))
-    {
+	{
 		ft_putendl_fd("rra", 1);
-        if (ft_rev_rotate(ts, 1) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_rev_rotate(ts, 1) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	if (!ft_strcmp(str, "rrb"))
-    {
+	{
 		ft_putendl_fd("rrb", 1);
-        if (ft_rev_rotate(ts, 2) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_rev_rotate(ts, 2) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	if (!ft_strcmp(str, "ra"))
-    {
+	{
 		ft_putendl_fd("ra", 1);
-        if (ft_rotate(ts, 1) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_rotate(ts, 1) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 }
 
-void    ft_print_op(t_stack *ts, char *str)
+void	ft_print_op(t_stack *ts, char *str)
 {
 	if (!ft_strcmp(str, "sa"))
-    {      
+	{
 		ft_putendl_fd("sa", 1);
-        if (ft_swap(ts, 1) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_swap(ts, 1) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	if (!ft_strcmp(str, "pa"))
-    {
+	{
 		ft_putendl_fd("pa", 1);
-        if (ft_push(ts, 1) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+		if (ft_push(ts, 1) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	if (!ft_strcmp(str, "pb"))
-    {
-    	ft_putendl_fd("pb", 1);
-        if (ft_push(ts, 2) == -1)
-            ft_exit(ts, "Error", 2);
-    }
+	{
+		ft_putendl_fd("pb", 1);
+		if (ft_push(ts, 2) == -1)
+			ft_exit(ts, "Error", 2);
+	}
 	ft_print_op2(ts, str);
 }

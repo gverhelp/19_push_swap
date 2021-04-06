@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-int     main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**stack;
-    t_stack	ts;
+	t_stack	ts;
 
 	stack = NULL;
 	ft_init_struct(&ts);
@@ -29,23 +29,6 @@ int     main(int argc, char **argv)
 	{
 		if (ft_what_operation(&ts) == -1)
 			ft_exit(&ts, "Error", 2);
-/*////////////////////////////////////////////////// Afficher stack a
-    	ts.firsta = ts.astack;
-		while (ts.astack)
-		{
-			printf("stack a : %d\n", ts.astack->number);
-			ts.astack = ts.astack->next;
-		}
-		ts.astack = ts.firsta;
-////////////////////////////////////////////////// Afficher stack b
-    	ts.firstb = ts.bstack;
-		while (ts.bstack)
-		{
-			printf("stack b : %d\n", ts.bstack->number);
-			ts.bstack = ts.bstack->next;
-		}
-		ts.bstack = ts.firstb;
-*/////////////////////////////////////////////////
 		free(ts.line);
 	}
 	free(ts.line);
@@ -55,5 +38,5 @@ int     main(int argc, char **argv)
 		ft_putendl_fd("KO", 1);
 	ft_delete_stack(&ts.astack);
 	ft_delete_stack(&ts.bstack);
-    return (0);
+	return (0);
 }

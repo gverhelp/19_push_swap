@@ -27,13 +27,13 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	a;
 
 	a = 0;
 	while (s1[a] != '\0' && s2[a] != '\0' &&
-			(unsigned char)s1[a] == (unsigned char)s2[a])
+		(unsigned char)s1[a] == (unsigned char)s2[a])
 		a++;
 	return ((unsigned char)s1[a] - (unsigned char)s2[a]);
 }
@@ -48,14 +48,14 @@ size_t	ft_strlen(const char *s)
 	return (a);
 }
 
-int	ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	int					a;
 	int					plusmoins;

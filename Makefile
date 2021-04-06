@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/12 12:18:47 by gverhelp          #+#    #+#              #
-#    Updated: 2021/03/26 20:38:12 by gverhelp         ###   ########.fr        #
+#    Updated: 2021/04/06 17:06:19 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ RM = rm -f
 
 all: $(CHECKER) $(PUSH_SWAP)
 $(CHECKER): $(OBJ) $(SRC_DIR)$(CHECKER).o
-	$(CC) -o $(CHECKER) $(OBJ) $(SRC_DIR)$(CHECKER).o $(LFT)
+	$(CC) -o $(CHECKER) $(OBJ) $(SRC_DIR)$(CHECKER).o
 
 $(PUSH_SWAP): $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o
-	$(CC) -o $(PUSH_SWAP) $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o $(LFT)
+	$(CC) -o $(PUSH_SWAP) $(OBJ) $(SRC_DIR)$(PUSH_SWAP).o
 
 clean:
 	$(RM) $(OBJ)
