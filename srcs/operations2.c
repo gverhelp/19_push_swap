@@ -14,8 +14,8 @@
 
 int	ft_rotate2(t_stack *ts)
 {
-	t_stack *top;
-	t_stack *bot;
+	t_stack	*top;
+	t_stack	*bot;
 
 	if (!ts->bstack)
 		return (-1);
@@ -31,8 +31,8 @@ int	ft_rotate2(t_stack *ts)
 
 int	ft_rev_rotate2(t_stack *ts)
 {
-	t_stack *bot;
-	t_stack *before_bot;
+	t_stack	*bot;
+	t_stack	*before_bot;
 
 	if (!ts->bstack)
 		return (-1);

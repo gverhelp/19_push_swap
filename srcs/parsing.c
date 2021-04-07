@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 13:58:00 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 18:00:48 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:19:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,12 @@ int	ft_parse(char **stack, t_stack *ts)
 		len++;
 	while (a < len)
 	{
-		if (ft_youanumber(stack[a]) == -1 ||
-			ft_check_dupli(stack[a], stack) == -1)
+		if (ft_youanumber(stack[a]) == -1
+			|| ft_check_dupli(stack[a], stack) == -1)
+		{
+			ft_free_tab(stack);
 			return (-1);
+		}
 		ft_stack_add_back(&ts->astack, ft_new_elem(ft_atoi(stack[a])));
 		ts->lena++;
 		a++;

@@ -14,7 +14,7 @@
 
 int	ft_get_higher_number(t_stack *mystack)
 {
-	int higher;
+	int	higher;
 
 	higher = mystack->number;
 	while (mystack)
@@ -92,7 +92,7 @@ int	ft_get_pos_lower_number(t_stack *mystack)
 
 int	ft_check_order(t_stack *ts)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = ts->astack;
 	if (ts->bstack)

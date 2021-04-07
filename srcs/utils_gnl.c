@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/04/06 17:12:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:50:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static char	*add_to_final(char *stat_str, t_struct *vars)
 	}
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		*stat_str[ARRAY_MAX_SIZE];
 	t_struct		vars;

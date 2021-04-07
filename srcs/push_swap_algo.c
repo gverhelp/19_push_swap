@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_algo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 14:29:57 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/07 01:04:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		ft_len_is_5(t_stack *ts)
+int	ft_len_is_5(t_stack *ts)
 {
 	int	a;
 	int	pos;
@@ -37,19 +37,19 @@ int		ft_len_is_5(t_stack *ts)
 
 void	ft_len_is_3_p2(t_stack *ts)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = ts->astack;
-	if (stack->number < stack->next->number &&
-		stack->next->number > stack->next->next->number &&
-		stack->number < stack->next->next->number)
+	if (stack->number < stack->next->number
+		&& stack->next->number > stack->next->next->number
+		&& stack->number < stack->next->next->number)
 	{
 		ft_print_op(ts, "sa");
 		ft_print_op(ts, "ra");
 	}
-	if (stack->number < stack->next->number &&
-		stack->next->number > stack->next->next->number &&
-		stack->number > stack->next->next->number)
+	if (stack->number < stack->next->number
+		&& stack->next->number > stack->next->next->number
+		&& stack->number > stack->next->next->number)
 		ft_print_op(ts, "rra");
 }
 
@@ -58,35 +58,35 @@ void	ft_len_is_3(t_stack *ts)
 	t_stack	*stack;
 
 	stack = ts->astack;
-	if (stack->number > stack->next->number &&
-		stack->next->number > stack->next->next->number &&
-		stack->number > stack->next->next->number)
+	if (stack->number > stack->next->number
+		&& stack->next->number > stack->next->next->number
+		&& stack->number > stack->next->next->number)
 	{
 		ft_print_op(ts, "sa");
 		ft_print_op(ts, "rra");
 	}
-	if (stack->number > stack->next->number &&
-		stack->next->number < stack->next->next->number &&
-		stack->number < stack->next->next->number)
+	if (stack->number > stack->next->number
+		&& stack->next->number < stack->next->next->number
+		&& stack->number < stack->next->next->number)
 		ft_print_op(ts, "sa");
-	if (stack->number > stack->next->number &&
-		stack->next->number < stack->next->next->number &&
-		stack->number > stack->next->next->number)
+	if (stack->number > stack->next->number
+		&& stack->next->number < stack->next->next->number
+		&& stack->number > stack->next->next->number)
 		ft_print_op(ts, "ra");
 	ft_len_is_3_p2(ts);
 }
 
-int		ft_len_is_2(t_stack *ts)
+int	ft_len_is_2(t_stack *ts)
 {
 	t_stack	*stack;
 
 	stack = ts->astack;
 	if (stack->number > stack->next->number)
-		ft_print_op(ts, "ra");
+		ft_print_op(ts, "sa");
 	return (0);
 }
 
-int		ft_start_algo(t_stack *ts)
+int	ft_start_algo(t_stack *ts)
 {
 	if (ft_get_sort_stack(ts) == -1)
 		return (-1);

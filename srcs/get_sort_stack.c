@@ -21,10 +21,10 @@ void	ft_true_swap(int **tab, int a, int b)
 	(*tab)[b] = tmp;
 }
 
-int		ft_get_sort_stack2(t_stack *ts)
+int	ft_get_sort_stack2(t_stack *ts)
 {
-	int a;
-	int b;
+	int	a;
+	int	b;
 
 	a = 0;
 	b = 0;
@@ -42,10 +42,10 @@ int		ft_get_sort_stack2(t_stack *ts)
 	return (0);
 }
 
-int		ft_get_sort_stack(t_stack *ts)
+int	ft_get_sort_stack(t_stack *ts)
 {
 	int		a;
-	t_stack *stack;
+	t_stack	*stack;
 
 	a = 0;
 	stack = ts->astack;

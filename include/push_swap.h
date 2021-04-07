@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 13:53:37 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 17:52:10 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:49:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include "get_next_line_bonus.h"
+# include "get_next_line.h"
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_stack	t_stack;
 
@@ -39,7 +40,7 @@ struct			s_stack
 
 int				ft_check_dupli(char *str, char **set);
 int				ft_youanumber(char *str);
-int				ft_parse(char **argv, t_stack *ts);
+int				ft_parse(char **stack, t_stack *ts);
 
 /////////// Manage stack //////////////
 

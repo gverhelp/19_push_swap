@@ -45,8 +45,8 @@ int	ft_get_hold_second(t_stack *ts, int start, int end)
 	int	*stackintab;
 
 	len = ts->lena - 1;
-	tmp = start;
-	if (!(stackintab = ft_get_mystack_in_tab(ts->astack)))
+	stackintab = ft_get_mystack_in_tab(ts->astack);
+	if (!stackintab)
 		return (-1);
 	while (len >= 0)
 	{

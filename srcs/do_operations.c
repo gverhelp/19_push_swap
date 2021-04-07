@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int		ft_what_operation2(t_stack *ts)
+int	ft_what_operation2(t_stack *ts)
 {
 	if (!ft_strcmp(ts->line, "rr"))
 	{
@@ -33,7 +33,7 @@ int		ft_what_operation2(t_stack *ts)
 	return (-1);
 }
 
-int		ft_what_operation(t_stack *ts)
+int	ft_what_operation(t_stack *ts)
 {
 	if (!ft_strcmp(ts->line, "sa"))
 		return (ft_swap(ts, 1));

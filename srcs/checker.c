@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gverhelp <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:52 by gverhelp          #+#    #+#             */
-/*   Updated: 2021/03/08 14:29:57 by gverhelp         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:29:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	char	**stack;
 	t_stack	ts;
 
-	stack = NULL;
 	ft_init_struct(&ts);
 	if (argc != 2)
 		return (0);

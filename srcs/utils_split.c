@@ -60,7 +60,7 @@ static char	*ft_write(const char *s, char c, char **tab)
 	return (dest);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		a;
 	int		b;
@@ -70,7 +70,7 @@ char		**ft_split(char const *s, char c)
 	b = 0;
 	if (s == NULL)
 		return (NULL);
-	tab = malloc((ft_malloc_s(s, c) + 1) * sizeof(char*));
+	tab = malloc((ft_malloc_s(s, c) + 1) * sizeof(char *));
 	if (!tab)
 		return (NULL);
 	while (s[a] != '\0')

@@ -12,20 +12,21 @@
 
 #include "../include/push_swap.h"
 
-int		ft_push_stack(t_stack **stack, int newnumber)
+int	ft_push_stack(t_stack **stack, int newnumber)
 {
-	t_stack *firststack;
+	t_stack	*firststack;
 
-	if (!(firststack = ft_new_elem(newnumber)))
+	firststack = ft_new_elem(newnumber);
+	if (!firststack)
 		return (-1);
 	firststack->next = *stack;
 	*stack = firststack;
 	return (0);
 }
 
-int		ft_pop_stack(t_stack **stack)
+int	ft_pop_stack(t_stack **stack)
 {
-	t_stack *del;
+	t_stack	*del;
 
 	if (!*stack)
 		return (-1);
