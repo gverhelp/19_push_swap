@@ -31,9 +31,6 @@ struct			s_stack
 	t_stack		*next;
 	t_stack		*astack;
 	t_stack		*bstack;
-
-	t_stack		*firsta;
-	t_stack		*firstb;
 };
 
 ////////////// Parsing ///////////////
